@@ -18,15 +18,6 @@ REACT JS
 GIT
 
 ## Contributors
-
-José Alves
-Farid Himeur
-Jessy Hazart
-Louen Maginot
-Lucie Froissart
-Olivier Lopez
-
-## Linkedin 
 Olivier Lopez : <https://www.linkedin.com/in/olivier-lopez-432868251>  
 Jessy Hazart : <https://www.linkedin.com/in/jessy-hazart3250>  
 Lucie Froissart : <https://www.linkedin.com/in/lucie-froissart-171b60246>  
