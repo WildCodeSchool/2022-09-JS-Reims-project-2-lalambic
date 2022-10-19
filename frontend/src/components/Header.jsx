@@ -1,12 +1,11 @@
+import SearchBar from "./SearchBar";
+
 function Header() {
   return (
     <div className="header">
       <button type="button">Lang</button>
       <img src="#" alt="logo" />
-      <form className="search-bar">
-        <input type="text" placeholder="Search for anything..." />
-        <button type="submit">search</button>
-      </form>
+      <SearchBar />
       <ul className="filter">
         <li>Filter</li>
         <li>Filter</li>
