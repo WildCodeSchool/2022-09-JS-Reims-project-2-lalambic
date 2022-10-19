@@ -26,6 +26,14 @@ Louen Maginot
 Lucie Froissart
 Olivier Lopez
 
+## Linkedin 
+<https://www.linkedin.com/in/olivier-lopez-432868251>
+<https://www.linkedin.com/in/jessy-hazart3250>
+<https://www.linkedin.com/in/lucie-froissart-171b60246>
+<https://www.linkedin.com/in/jos%C3%A9-alves-5195b922b>
+<https://www.linkedin.com/in/louen-maginot-a81222206>
+<https://www.linkedin.com/in/farid-himeur>
+
 ### Project Initialization
 
 - In VSCode, install plugins **Prettier - Code formatter** and **ESLint** and configure them
