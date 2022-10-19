@@ -5,8 +5,20 @@ function Section() {
       <div className="display-main">
         <div className="card">
           
-          <img href="https://media.istockphoto.com/photos/cocktail-splash-picture-id1283952381" alt="it's a cocktail" />
-          <img href="https://media.istockphoto.com/photos/preparation-of-a-cocktail-picture-id1340608319" alt="it's a cocktail" />
+          <img 
+
+          href="https://media.istockphoto.com/photos/cocktail-splash-picture-id1283952381"
+          alt="it's a cocktail" 
+          
+          />
+
+          
+          <img
+
+          href="https://media.istockphoto.com/photos/preparation-of-a-cocktail-picture-id1340608319"
+          alt="it's a cocktail" 
+          
+          />
 
           </div>
       </div>
