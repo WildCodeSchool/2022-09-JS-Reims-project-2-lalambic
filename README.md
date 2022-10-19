@@ -1,9 +1,30 @@
 ## Concept
 
-This template is meant to serve as a foundation for every P2/P3 following the React-Express-MySQL stack, as learned in Wild Code School.
-It's pre-configured with a set of tools which'll help students produce industry-quality and easier-to-maintain code, while staying as simple as possible to use.
+Lalambic is a cocktail catalog application developed with React JS.
+This application aims to support the user in the creation of cocktails.
+
+## Date
+
+We have been in training since 1 month at the Wild Code School,
+We have six weeks to do the catalog project "Lalambic".
 
 ## Setup & Use
+
+Used Technologies :
+HTML
+CSS
+JAVASCRIPT
+REACT JS
+GIT
+
+## Contributors
+
+José Alves
+Farid Himeur
+Jessy Hazart
+Louen Maginot
+Lucie Froissart
+Olivier Lopez
 
 ### Project Initialization
 
