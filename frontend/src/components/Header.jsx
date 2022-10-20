@@ -6,10 +6,17 @@ function Header() {
       <button type="button">Lang</button>
       <img src="#" alt="logo" />
       <SearchBar />
-      <ul className="filter">
-        <li>Filter</li>
-        <li>Filter</li>
-      </ul>
+      <nav>
+        <ul className="filter">
+          <li>Nom</li>
+          <li>
+            Ingrédients <SearchBar />{" "}
+          </li>
+          <li>Type de verre</li>
+          <li>Catégories</li>
+          <li>Avec ou sans alcool</li>
+        </ul>
+      </nav>
     </div>
   );
 }
