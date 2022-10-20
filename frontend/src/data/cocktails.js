@@ -1,4 +1,4 @@
-const dataCocktail = [
+const cocktails = [
   {
     name: "Margarita",
     image:
@@ -59,4 +59,4 @@ const dataCocktail = [
   },
 ];
 
-export default dataCocktail;
+export default cocktails;
