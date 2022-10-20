@@ -9,7 +9,7 @@ function Header() {
         alt="logo"
         className="logo-header"
       />
-      <form className="search-bar">
+      <form>
         <input type="text" placeholder="Search for anything..." />
         <button type="submit">search</button>
       </form>
