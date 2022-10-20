@@ -1,5 +1,3 @@
-import SearchBar from "./SearchBar";
-
 function Header() {
   return (
     <div className="header">
