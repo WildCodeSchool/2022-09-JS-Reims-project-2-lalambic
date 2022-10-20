@@ -1,8 +1,14 @@
 function Header() {
   return (
     <div className="header">
-      <button type="button">Lang</button>
-      <img src="#" alt="logo" />
+      <button type="button" className="lang">
+        Lang
+      </button>
+      <img
+        src="../src/assets/logo-texte.png"
+        alt="logo"
+        className="logo-header"
+      />
       <form className="search-bar">
         <input type="text" placeholder="Search for anything..." />
         <button type="submit">search</button>
