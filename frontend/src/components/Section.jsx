@@ -3,7 +3,7 @@ import "./section.css";
 function Section() {
   return (
     <div className="section">
-      <div className="display-selection">
+      <div className="display-main">
         <div className="card">
           <img
             className="cardstyle"
