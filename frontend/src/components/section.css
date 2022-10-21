@@ -16,10 +16,10 @@
 }
 
 img.cardstyle {
-  max-width: 80%;
-  max-height: 80%;
+  max-width: 45%;
+  max-height: 45%;
   border: solid;
-  border-width: 10px;
+  border-width: 8px;
   border-color: #ff962e;
 }
 

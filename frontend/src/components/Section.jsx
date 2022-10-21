@@ -3,7 +3,7 @@ import "./section.css";
 function Section() {
   return (
     <div className="section">
-      <div className="display-selection">
+      <div className="display-main">
         <div className="card">
           <img
             className="cardstyle"
@@ -25,7 +25,7 @@ function Section() {
         <div className="card">
           <img
             className="cardstyle"
-            src="https://media.istockphoto.com/photos/cocktail-splash-picture-id1283952381"
+            src="https://www.thecocktaildb.com/images/media/drink/5noda61589575158.jpg"
             alt="it's a cocktail"
           />
           <h2 className="titlecocktail"> Its a cocktail</h2>
@@ -33,7 +33,7 @@ function Section() {
         <div className="card">
           <img
             className="cardstyle"
-            src="https://media.istockphoto.com/photos/preparation-of-a-cocktail-picture-id1340608319"
+            src="https://www.thecocktaildb.com/images/media/drink/loezxn1504373874.jpg"
             alt="it's a cocktail"
           />
           <h2 className="titlecocktail"> Its a cocktail</h2>
