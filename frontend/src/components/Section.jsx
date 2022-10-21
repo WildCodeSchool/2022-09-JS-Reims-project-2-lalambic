@@ -1,7 +1,7 @@
 function Section() {
   return (
     <div className="section">
-       <div className="display-selection">
+      <div className="display-selection">
         <div className="card">
           <img
             src="https://www.thecocktaildb.com/images/media/drink/59splc1504882899.jpg"
