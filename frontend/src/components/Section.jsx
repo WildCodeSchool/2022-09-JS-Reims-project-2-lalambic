@@ -3,7 +3,24 @@ import "./section.css";
 function Section() {
   return (
     <div className="section">
-      <div className="display-selection">section1</div>
+      <div className="display-selection">
+        <div className="card">
+          <img
+            className="cardstyle"
+            src="https://www.thecocktaildb.com/images/media/drink/59splc1504882899.jpg"
+            alt="Havana Cocktail"
+          />
+          <h2 className="titlecocktail"> Its a cocktail</h2>
+        </div>
+        <div className="card">
+          <img
+            className="cardstyle"
+            src="https://www.thecocktaildb.com/images/media/drink/0bkwca1492975553.jpg"
+            alt="Highland Fling Cocktail"
+          />
+          <h2 className="titlecocktail"> Its a cocktail</h2>
+        </div>
+      </div>
       <div className="display-main">
         <div className="card">
           <img
@@ -13,7 +30,6 @@ function Section() {
           />
           <h2 className="titlecocktail"> Its a cocktail</h2>
         </div>
-
         <div className="card">
           <img
             className="cardstyle"
