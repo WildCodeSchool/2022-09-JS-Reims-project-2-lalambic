@@ -1,10 +1,11 @@
 import SearchBar from "./SearchBar";
+import "./Lang.css";
 
 function Header() {
   return (
     <div className="header">
       <button type="button" className="lang">
-        Lang
+        UK
       </button>
       <img
         src="../src/assets/logo-texte.png"
@@ -17,8 +18,6 @@ function Header() {
           <li>Nom</li>
           <li>Ingrédients</li>
           <li>Type de verre</li>
-          <li>Catégories</li>
-          <li>Avec ou sans alcool</li>
         </ul>
       </nav>
     </div>

@@ -1,0 +1,24 @@
+* {
+    margin: 0;
+    /*positioner la marge à 0*/
+    padding: 0;
+    /*positionner le bord à 0*/
+    --main-color: #ff962e;
+    /*couleur principal*/
+    --main-font-text: "Roboto";
+    box-sizing: border-box;
+  }
+
+
+.lang{
+    background-color: #D8D8D8;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    border:none;
+    border-radius: 0.3rem;
+    padding: 0.4rem;
+    font-family: var(--main-font-text); 
+    
+}

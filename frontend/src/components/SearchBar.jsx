@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./SearchBar.css";
 
 function SearchBar() {
   const [userSearch, setUserSearch] = useState("");
@@ -8,14 +9,16 @@ function SearchBar() {
   function handleSubmit(e) {
     e.preventDefault();
   }
+
   return (
     <form className="search-bar" onSubmit={handleSubmit}>
       <input
-        type={userSearch}
-        placeholder="Search for anything..."
+        className="monlogo"
+        value={userSearch}
+        type="text"
+        placeholder="Search"
         onChange={handleChange}
       />
-      <button type="submit">search</button>
     </form>
   );
 }
