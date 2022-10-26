@@ -13,7 +13,7 @@ function SearchBar() {
   return (
     <form className="search-bar" onSubmit={handleSubmit}>
       <input
-        className="monlogo"
+        className="input-search-bar"
         value={userSearch}
         type="text"
         placeholder="Search"
