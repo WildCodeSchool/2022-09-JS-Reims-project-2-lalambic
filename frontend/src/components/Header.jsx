@@ -1,6 +1,7 @@
+import PropTypes from "prop-types";
 import SearchBar from "./SearchBar";
 
-function Header() {
+function Header({ userSearch, onSubmit, onChange }) {
   return (
     <div className="header">
       <button type="button" className="lang">
@@ -11,7 +12,11 @@ function Header() {
         alt="logo"
         className="logo-header"
       />
-      <SearchBar />
+      <SearchBar
+        userSearch={userSearch}
+        onSubmit={onSubmit}
+        onChange={onChange}
+      />
       <nav>
         <ul className="filter">
           <li>Nom</li>
@@ -24,5 +29,9 @@ function Header() {
     </div>
   );
 }
-
+Header.propTypes = {
+  userSearch: PropTypes.string.isRequired,
+  onSubmit: PropTypes.func.isRequired,
+  onChange: PropTypes.func.isRequired,
+};
 export default Header;

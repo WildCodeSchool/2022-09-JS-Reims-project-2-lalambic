@@ -1,23 +1,21 @@
-import { useState } from "react";
+import PropTypes from "prop-types";
 
-function SearchBar() {
-  const [userSearch, setUserSearch] = useState("");
-  function handleChange(e) {
-    setUserSearch(e.target.value);
-  }
-  function handleSubmit(e) {
-    e.preventDefault();
-  }
+function SearchBar({ userSearch, onSubmit, onChange }) {
   return (
-    <form className="search-bar" onSubmit={handleSubmit}>
+    <form className="search-bar" onSubmit={onSubmit}>
       <input
         type={userSearch}
         placeholder="Search for anything..."
-        onChange={handleChange}
+        onChange={onChange}
       />
       <button type="submit">search</button>
     </form>
   );
 }
 
+SearchBar.propTypes = {
+  userSearch: PropTypes.string.isRequired,
+  onSubmit: PropTypes.func.isRequired,
+  onChange: PropTypes.func.isRequired,
+};
 export default SearchBar;
