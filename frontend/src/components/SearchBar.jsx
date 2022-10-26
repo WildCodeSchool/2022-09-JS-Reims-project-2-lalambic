@@ -4,7 +4,8 @@ function SearchBar({ userSearch, onSubmit, onChange }) {
   return (
     <form className="search-bar" onSubmit={onSubmit}>
       <input
-        type={userSearch}
+        value={userSearch}
+        type="text"
         placeholder="Search for anything..."
         onChange={onChange}
       />
