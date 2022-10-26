@@ -3,7 +3,7 @@ import SearchBar from "./SearchBar";
 
 function Header({ userSearch, onSubmit, onChange }) {
   return (
-    <div className="header">
+    <header className="header">
       <button type="button" className="lang">
         Lang
       </button>
@@ -26,7 +26,7 @@ function Header({ userSearch, onSubmit, onChange }) {
           <li>Avec ou sans alcool</li>
         </ul>
       </nav>
-    </div>
+    </header>
   );
 }
 Header.propTypes = {
