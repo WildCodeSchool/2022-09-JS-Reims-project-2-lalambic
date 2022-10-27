@@ -1,30 +1,15 @@
-* {
-    margin: 0;
-    /*positioner la marge à 0*/
-    padding: 0;
-    /*positionner le bord à 0*/
-    --main-color: #ff962e;
-    /*couleur principal*/
-    --main-font-text: "Roboto";
-    box-sizing: border-box;
-  }
-
 .input-search-bar{
     background-image: url('../assets/loupe.png');
     background-size:5%;
     background-repeat: no-repeat;
     background-position:0.7rem center ;
-    padding-left: 40px;
     display:flex;
     align-items: center;
-    padding:0.8rem;
-    padding-left: 3rem;
-    padding-right:3rem;
+    padding:0.8rem 3rem;
     background-color: #D8D8D8;
     border:none;
     border-radius: 50px;
     font-size: large;
     margin-bottom: 0.5rem;
-    outline: none;
     font-family: var(--main-font-text); 
 }
