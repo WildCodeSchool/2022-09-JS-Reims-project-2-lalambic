@@ -1,8 +1,9 @@
+import PropTypes from "prop-types";
 import Card from "./Card";
 import cocktails from "../data/cocktails";
 import "./section.css";
 
-function Section() {
+function Section({ cocktailsList }) {
   return (
     <div className="section">
       <div className="display-main">
@@ -15,7 +16,7 @@ function Section() {
         ))}
       </div>
       <div className="display-main">
-        {cocktails.slice(2, 4).map((cocktail) => (
+        {cocktailsList.map((cocktail) => (
           <Card
             key={cocktail.name}
             cocktailName={cocktail.name}
@@ -26,5 +27,7 @@ function Section() {
     </div>
   );
 }
-
+Section.propTypes = {
+  cocktailsList: PropTypes.string.isRequired,
+};
 export default Section;
