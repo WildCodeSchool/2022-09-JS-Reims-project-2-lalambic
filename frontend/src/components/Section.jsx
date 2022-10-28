@@ -1,10 +1,6 @@
-<<<<<<< HEAD
-import "./Section.css";
-=======
 import Card from "./Card";
 import cocktails from "../data/cocktails";
-import "./section.css";
->>>>>>> 39847239aba40da245ee03b3cf821974c45aba0c
+import "./Section.css";
 
 function Section() {
   return (
