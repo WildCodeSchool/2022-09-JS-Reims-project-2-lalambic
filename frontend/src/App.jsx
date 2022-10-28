@@ -13,11 +13,10 @@ function App() {
   function handleSubmit(e) {
     e.preventDefault();
 
-    const cocktailsListCopy = [...cocktailsList];
-    const cocktailsListCopyUpdated = cocktailsListCopy.filter((cocktail) =>
+    const cocktailsListUpdated = cocktailsList.filter((cocktail) =>
       cocktail.name.slice(0, userSearch.length).includes(userSearch)
     );
-    setCocktailsList(cocktailsListCopyUpdated);
+    setCocktailsList(cocktailsListUpdated);
   }
   return (
     <div className="App">

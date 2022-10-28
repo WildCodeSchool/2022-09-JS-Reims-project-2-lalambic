@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import Card from "./Card";
+import CocktailType from "../prop-types/CocktailType";
 import cocktails from "../data/cocktails";
 import "./section.css";
 
@@ -15,7 +16,7 @@ function Section({ cocktailsList }) {
           />
         ))}
       </div>
-      <div className="display-main">
+      <div className="display-main rand">
         {cocktailsList.map((cocktail) => (
           <Card
             key={cocktail.name}
@@ -28,6 +29,6 @@ function Section({ cocktailsList }) {
   );
 }
 Section.propTypes = {
-  cocktailsList: PropTypes.string.isRequired,
+  cocktailsList: PropTypes.arrayOf(CocktailType).isRequired,
 };
 export default Section;
