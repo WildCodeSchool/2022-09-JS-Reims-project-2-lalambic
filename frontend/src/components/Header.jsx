@@ -1,11 +1,12 @@
 import PropTypes from "prop-types";
 import SearchBar from "./SearchBar";
+import "./Lang.css";
 
 function Header({ userSearch, onSubmit, onChange }) {
   return (
     <header className="header">
       <button type="button" className="lang">
-        Lang
+        UK
       </button>
       <img
         src="../src/assets/logo-texte.png"
@@ -22,8 +23,6 @@ function Header({ userSearch, onSubmit, onChange }) {
           <li>Nom</li>
           <li>Ingrédients</li>
           <li>Type de verre</li>
-          <li>Catégories</li>
-          <li>Avec ou sans alcool</li>
         </ul>
       </nav>
     </header>

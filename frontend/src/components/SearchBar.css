@@ -1,0 +1,15 @@
+.input-search-bar{
+    background-image: url('../assets/loupe.png');
+    background-size:5%;
+    background-repeat: no-repeat;
+    background-position:0.7rem center ;
+    display:flex;
+    align-items: center;
+    padding:0.8rem 3rem;
+    background-color: #D8D8D8;
+    border:none;
+    border-radius: 50px;
+    font-size: large;
+    margin-bottom: 0.5rem;
+    font-family: var(--main-font-text); 
+}
