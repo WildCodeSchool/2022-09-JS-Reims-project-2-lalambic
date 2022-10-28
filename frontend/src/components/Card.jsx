@@ -1,4 +1,4 @@
-import PropTypes from "prop-types";
+import CocktailType from "../prop-types/CocktailType";
 
 function Card({ cocktailName, image }) {
   return (
@@ -9,9 +9,6 @@ function Card({ cocktailName, image }) {
   );
 }
 
-Card.propTypes = {
-  cocktailName: PropTypes.string.isRequired,
-  image: PropTypes.string.isRequired,
-};
+Card.propTypes = CocktailType.isRequired;
 
 export default Card;
