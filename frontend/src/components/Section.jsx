@@ -1,6 +1,6 @@
 import Card from "./Card";
 import cocktails from "../data/cocktails";
-import "./Section-tmp.css";
+import "./Section.css";
 
 function Section() {
   return (
