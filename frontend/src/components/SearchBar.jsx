@@ -1,15 +1,16 @@
 import PropTypes from "prop-types";
+import "./SearchBar.css";
 
 function SearchBar({ userSearch, onSubmit, onChange }) {
   return (
     <form className="search-bar" onSubmit={onSubmit}>
       <input
+        className="input-search-bar"
         value={userSearch}
         type="text"
         placeholder="Search for anything..."
         onChange={onChange}
       />
-      <button type="submit">search</button>
     </form>
   );
 }

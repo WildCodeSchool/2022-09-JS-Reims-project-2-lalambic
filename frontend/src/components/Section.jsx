@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import Card from "./Card";
 import CocktailType from "../prop-types/CocktailType";
 import cocktails from "../data/cocktails";
-import "./section.css";
+import "./Section.css";
 
 function Section({ userSearch, cocktailsList }) {
   return (
