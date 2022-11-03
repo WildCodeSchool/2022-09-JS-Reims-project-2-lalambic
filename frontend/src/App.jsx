@@ -1,12 +1,15 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
 import Header from "./components/Header";
 import Section from "./components/Section";
-import cocktails from "./data/cocktails";
 import "./App.css";
 
 function App() {
   const [userSearch, setUserSearch] = useState("");
-  const [cocktailsList, setCocktailsList] = useState([...cocktails]);
+  const [cocktailsList, setCocktailsList] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const url = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${userSearch}`;
+
   function handleChange(e) {
     setUserSearch(e.target.value);
   }
@@ -14,10 +17,22 @@ function App() {
     e.preventDefault();
 
     const cocktailsListUpdated = cocktailsList.filter((cocktail) =>
-      cocktail.name.slice(0, userSearch.length).includes(userSearch)
+      cocktail.strDrink.includes(userSearch)
     );
     setCocktailsList(cocktailsListUpdated);
   }
+
+  const fetchApi = () => {
+    axios.get(url).then((res) => {
+      setCocktailsList(res.data.drinks);
+      setLoading(false);
+    });
+  };
+
+  useEffect(() => {
+    fetchApi();
+  }, [url]);
+
   return (
     <div className="App">
       <Header
@@ -25,7 +40,11 @@ function App() {
         onSubmit={(e) => handleSubmit(e)}
         onChange={(e) => handleChange(e)}
       />
-      <Section cocktailsList={cocktailsList} />
+      {!loading && cocktailsList ? (
+        <Section userSearch={userSearch} cocktailsList={cocktailsList} />
+      ) : (
+        <p>{loading ? "loading cocktails..." : "no matching result"}</p>
+      )}
     </div>
   );
 }

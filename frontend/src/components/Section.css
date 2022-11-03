@@ -24,7 +24,13 @@ img.cardstyle {
   border-radius: 0.7rem;
 }
 
+.rand{
+  flex-wrap: wrap;
+  gap:1rem;
+}
+
 figure.card {
   padding: 4rem 0rem 0rem 0rem;
   scroll-snap-align: center;
 }
+
