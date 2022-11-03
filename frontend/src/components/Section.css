@@ -1,16 +1,29 @@
 .display-main {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-around;
   text-align: center;
   background-color: #f9f9f9;
   align-items: center;
-  padding-top: 10px;
-  padding-bottom: 5px;
+
+  gap: 1rem;
+  margin: 0rem 1rem 0rem 1rem;
+}
+
+.caroussel {
+  display: flex;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  touch-action: auto;
 }
 
 img.cardstyle {
-  max-width: 45%;
-  max-height: 45%;
-  border-radius: 1.5rem;
+  max-width: 15rem;
+  max-height: 15rem;
+  border-radius: 0.7rem;
+}
+
+figure.card {
+  padding: 4rem 0rem 0rem 0rem;
 }
