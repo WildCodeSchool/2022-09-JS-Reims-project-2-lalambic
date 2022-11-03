@@ -32,7 +32,7 @@ function Section({ userSearch, cocktailsList }) {
             />
           ))}
       </div>
-      <div className="display-cocktail page">
+      <div className="display-main page">
         {cocktails.slice(0, 1).map((cocktail) => (
           <CocktailPage
             key={cocktail.name}
