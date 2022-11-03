@@ -4,7 +4,7 @@
     align-items: center;
     justify-content: space-evenly;
     background-color: white;
-    box-shadow: 0px 5px 16px 12px rgba(0,0,0);
+    box-shadow: 0px -10px 14px 11px rgba(0,0,0,0.56);
   }
 
   .logo-header {
