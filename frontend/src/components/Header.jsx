@@ -5,9 +5,6 @@ import "./Lang.css";
 function Header({ userSearch, onSubmit, onChange }) {
   return (
     <header className="header">
-      <button type="button" className="lang">
-        UK
-      </button>
       <img
         src="../src/assets/logo-texte.png"
         alt="logo"

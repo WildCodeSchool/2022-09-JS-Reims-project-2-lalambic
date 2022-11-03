@@ -6,7 +6,10 @@ import "./App.css";
 
 function App() {
   const [userSearch, setUserSearch] = useState("");
-  const [cocktailsList, setCocktailsList] = useState(null);
+  const [cocktailsList, setCocktailsList] = useState(false);
+
+  const url = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${userSearch}`;
+
   function handleChange(e) {
     setUserSearch(e.target.value);
   }
@@ -14,20 +17,18 @@ function App() {
     e.preventDefault();
 
     const cocktailsListUpdated = cocktailsList.filter((cocktail) =>
-      cocktail.name.slice(0, userSearch.length).includes(userSearch)
+      cocktail.strDrink.includes(userSearch)
     );
     setCocktailsList(cocktailsListUpdated);
   }
 
   const fetchApi = () => {
-    axios
-      .get("https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Alcoholic")
-      .then((res) => setCocktailsList(res.data.drinks));
+    axios.get(url).then((res) => setCocktailsList(res.data.drinks));
   };
 
   useEffect(() => {
     fetchApi();
-  }, []);
+  }, [url]);
 
   return (
     <div className="App">
@@ -39,7 +40,11 @@ function App() {
       {cocktailsList ? (
         <Section userSearch={userSearch} cocktailsList={cocktailsList} />
       ) : (
-        <p>Chargement des cocktails...</p>
+        <p>
+          {cocktailsList === false
+            ? "loading cocktails..."
+            : "no matching result"}
+        </p>
       )}
     </div>
   );

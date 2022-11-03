@@ -18,7 +18,9 @@ function Section({ userSearch, cocktailsList }) {
       </div>
       <div className="display-main rand">
         {cocktailsList
-          .filter((cocktail) => cocktail.strDrink.includes(userSearch))
+          .filter((cocktail) =>
+            cocktail.strDrink.toLowerCase().includes(userSearch.toLowerCase())
+          )
           .map((cocktail) => (
             <Card
               key={cocktail.strDrink}

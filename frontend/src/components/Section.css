@@ -10,7 +10,12 @@
 }
 
 img.cardstyle {
-  max-width: 45%;
-  max-height: 45%;
+  max-width: 10rem;
+  max-height: 10rem;
   border-radius: 1.5rem;
+}
+
+.rand{
+  flex-wrap: wrap;
+  gap:1rem;
 }
