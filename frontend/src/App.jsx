@@ -25,7 +25,9 @@ function App() {
         onSubmit={(e) => handleSubmit(e)}
         onChange={(e) => handleChange(e)}
       />
-      <Section cocktailsList={cocktailsList} />
+      <body>
+        <Section cocktailsList={cocktailsList} />
+      </body>
     </div>
   );
 }
