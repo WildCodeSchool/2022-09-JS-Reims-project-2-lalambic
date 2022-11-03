@@ -11,6 +11,8 @@
 }
 
 .header {
+  font-family: 'Roboto', sans-serif;
+  color: #090909;
   display: flex;
   flex-direction: column;
   align-items: center;
