@@ -5,12 +5,14 @@
   /*positionner le bord à 0*/
   --main-color: #ff962e;
   /*couleur principal*/
-  --main-font-text: "Roboto";
+  font-family: 'Roboto', sans-serif;
   box-sizing: border-box;
   background-color: #f9f9f9;
 }
 
 .header {
+  font-family: 'Roboto', sans-serif;
+  color: #090909;
   display: flex;
   flex-direction: column;
   align-items: center;
