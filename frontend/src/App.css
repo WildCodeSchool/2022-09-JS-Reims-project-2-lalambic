@@ -5,7 +5,7 @@
   /*positionner le bord à 0*/
   --main-color: #ff962e;
   /*couleur principal*/
-  --main-font-text: "Roboto";
+  font-family: 'Roboto', sans-serif;
   box-sizing: border-box;
 } 
 
