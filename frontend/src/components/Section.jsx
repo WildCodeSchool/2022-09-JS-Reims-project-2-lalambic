@@ -7,14 +7,16 @@ import "./Section.css";
 function Section({ userSearch, cocktailsList }) {
   return (
     <div className="section">
-      <div className="display-main">
-        {cocktails.slice(0, 2).map((cocktail) => (
-          <Card
-            key={cocktail.name}
-            cocktailName={cocktail.name}
-            image={cocktail.image}
-          />
-        ))}
+      <div className="caroussel">
+        <div className="display-main">
+          {cocktails.slice(0, 10).map((cocktail) => (
+            <Card
+              key={cocktail.name}
+              cocktailName={cocktail.name}
+              image={cocktail.image}
+            />
+          ))}
+        </div>
       </div>
       <div className="display-main rand">
         {cocktailsList
