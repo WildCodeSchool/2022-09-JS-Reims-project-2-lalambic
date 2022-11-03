@@ -25,4 +25,5 @@ img.cardstyle {
 
 figure.card {
   padding: 4rem 0rem 0rem 0rem;
+  scroll-snap-align: center;
 }
