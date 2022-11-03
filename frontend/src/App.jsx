@@ -6,8 +6,8 @@ import "./App.css";
 
 function App() {
   const [userSearch, setUserSearch] = useState("");
-  const [cocktailsList, setCocktailsList] = useState(false);
-
+  const [cocktailsList, setCocktailsList] = useState([]);
+  const [loading, setLoading] = useState(true);
   const url = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${userSearch}`;
 
   function handleChange(e) {
@@ -23,7 +23,10 @@ function App() {
   }
 
   const fetchApi = () => {
-    axios.get(url).then((res) => setCocktailsList(res.data.drinks));
+    axios.get(url).then((res) => {
+      setCocktailsList(res.data.drinks);
+      setLoading(false);
+    });
   };
 
   useEffect(() => {
@@ -37,14 +40,10 @@ function App() {
         onSubmit={(e) => handleSubmit(e)}
         onChange={(e) => handleChange(e)}
       />
-      {cocktailsList ? (
+      {!loading && cocktailsList ? (
         <Section userSearch={userSearch} cocktailsList={cocktailsList} />
       ) : (
-        <p>
-          {cocktailsList === false
-            ? "loading cocktails..."
-            : "no matching result"}
-        </p>
+        <p>{loading ? "loading cocktails..." : "no matching result"}</p>
       )}
     </div>
   );
