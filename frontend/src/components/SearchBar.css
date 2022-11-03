@@ -6,10 +6,10 @@
     display:flex;
     align-items: center;
     padding:0.8rem 3rem;
-    background-color: #D8D8D8;
     border:none;
     border-radius: 50px;
     font-size: large;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1.4rem;
     font-family: var(--main-font-text); 
+    background-color: #D3D3D3;
 }

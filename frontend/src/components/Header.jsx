@@ -1,13 +1,10 @@
 import PropTypes from "prop-types";
 import SearchBar from "./SearchBar";
-import "./Lang.css";
+import "./Header.css";
 
 function Header({ userSearch, onSubmit, onChange }) {
   return (
     <header className="header">
-      <button type="button" className="lang">
-        UK
-      </button>
       <img
         src="../src/assets/logo-texte.png"
         alt="logo"
@@ -18,13 +15,6 @@ function Header({ userSearch, onSubmit, onChange }) {
         onSubmit={onSubmit}
         onChange={onChange}
       />
-      <nav>
-        <ul className="filter">
-          <li>Nom</li>
-          <li>Ingrédients</li>
-          <li>Type de verre</li>
-        </ul>
-      </nav>
     </header>
   );
 }
