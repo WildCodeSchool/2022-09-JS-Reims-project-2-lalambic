@@ -7,7 +7,7 @@
   text-align: center;
   align-items: center;
   gap: 1rem;
-  margin: 0 1rem;
+  margin: 0 1rem 2rem;
 }
 
 .caroussel {
@@ -16,13 +16,14 @@
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
   touch-action: auto;
-  scrollbar-width: none;
+  margin-bottom: 2rem;
 }
 
 img.cardstyle {
   max-width: 15rem;
   max-height: 15rem;
   border-radius: 0.7rem;
+  box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.83);
 }
 
 .rand {
@@ -36,6 +37,11 @@ img.cardstyle {
 }
 
 figure.card {
-  padding: 4rem 0rem 0rem 0rem;
   scroll-snap-align: center;
+}
+
+.title{
+  font-size: 1.2rem;
+  margin: 2rem 1.2rem 0.9rem;
+  font-weight: bold;
 }
