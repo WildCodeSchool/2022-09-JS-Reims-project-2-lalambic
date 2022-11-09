@@ -1,5 +1,5 @@
 .display-main {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   color: #090909;
   display: flex;
   flex-direction: row;
@@ -8,6 +8,10 @@
   align-items: center;
   gap: 1rem;
   margin: 0 1rem;
+}
+
+.hidden {
+  display: none;
 }
 
 .caroussel {
@@ -24,9 +28,9 @@ img.cardstyle {
   border-radius: 0.7rem;
 }
 
-.rand{
+.rand {
   flex-wrap: wrap;
-  gap:1rem;
+  gap: 1rem;
 }
 
 figure.card {
@@ -34,3 +38,32 @@ figure.card {
   scroll-snap-align: center;
 }
 
+.App {
+  position: relative;
+}
+.display-cocktail {
+  position: absolute;
+  top: 0;
+  left: -100vw;
+  min-height: 100vh;
+  width: 100%;
+  background-color: rgb(44, 133, 211);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.open {
+  left: 0;
+}
+
+.display-cocktail button {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+.display-cocktail img {
+  width: 10rem;
+  max-height: auto;
+}
