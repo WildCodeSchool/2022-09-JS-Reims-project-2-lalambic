@@ -20,7 +20,7 @@ function Header({ userSearch, onSubmit, onChange }) {
         <ul className="filters">
           <li className="filter"> Name </li>
           <li className="filter"> Ingredients </li>
-          <li className="filter"> Type of Glasses </li>
+          <li className="filter"> Glasses </li>
         </ul>
       </nav>
     </header>
