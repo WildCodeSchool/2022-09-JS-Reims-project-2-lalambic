@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import SearchBar from "./SearchBar";
 import "./Header.css";
+import "./Filters.css";
 
 function Header({ userSearch, onSubmit, onChange }) {
   return (
@@ -15,6 +16,13 @@ function Header({ userSearch, onSubmit, onChange }) {
         onSubmit={onSubmit}
         onChange={onChange}
       />
+      <nav className="navbarfilters">
+        <ul className="filters">
+          <li className="filter"> Name </li>
+          <li className="filter"> Ingredients </li>
+          <li className="filter"> Type of Glasses </li>
+        </ul>
+      </nav>
     </header>
   );
 }
