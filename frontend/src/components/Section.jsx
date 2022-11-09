@@ -1,61 +1,74 @@
 import PropTypes from "prop-types";
-import { useRef } from "react";
+import { useState } from "react";
 import Card from "./Card";
 import CocktailPage from "./CocktailPage";
 import CocktailType from "../prop-types/CocktailType";
-import cocktails from "../data/cocktails";
 import "./Section.css";
 
 function Section({ userSearch, cocktailsList }) {
-  const page = useRef();
-  const section = useRef();
-  const section2 = useRef();
-  function handlePage() {
-    page.current.classList.toggle("open");
-    section.current.classList.toggle("hidden");
-    section2.current.classList.toggle("hidden");
-  }
+  const [currentCocktail, setCurrentCocktail] = useState();
+
   return (
     <div className="section">
-      <h1 className="title">NOTRE SÉLECTION DE COCKTAIL</h1>
-      <div className="caroussel">
-        <div ref={section} className="display-main">
-          {cocktails.slice(0, 10).map((cocktail) => (
-            <Card
-              key={cocktail.name}
-              cocktailName={cocktail.name}
-              image={cocktail.image}
-              handlePage={() => handlePage()}
-            />
-          ))}
-        </div>
-      </div>
-      <div ref={section2} className="display-main rand">
-        {cocktailsList
-          .filter((cocktail) =>
-            cocktail.strDrink.toLowerCase().includes(userSearch.toLowerCase())
-          )
-          .map((cocktail) => (
-            <Card
-              key={cocktail.strDrink}
-              cocktailName={cocktail.strDrink}
-              image={cocktail.strDrinkThumb}
-              handlePage={() => handlePage()}
-            />
-          ))}
-      </div>
-      <div ref={page} className="display-cocktail">
-        {cocktails.slice(0, 1).map((cocktail) => (
+      {currentCocktail != null ? (
+        <div className="display-cocktail">
           <CocktailPage
-            key={cocktail.name}
-            cocktailName={cocktail.name}
-            image={cocktail.image}
-            ingredients={cocktail.ingredients}
-            instructions={cocktail.instructions}
-            handlePage={() => handlePage()}
+            cocktailName={currentCocktail.strDrink}
+            image={currentCocktail.strDrinkThumb}
+            ingredients={currentCocktail.strIngredient1}
+            measurements={currentCocktail.strMeasure1}
+            instructions={currentCocktail.strInstructions}
+            handlePage={() => {
+              setCurrentCocktail(null);
+            }}
           />
-        ))}
-      </div>
+        </div>
+      ) : (
+        <>
+          <section className="caroussel">
+            <h1 className="title">OUR COCKTAIL SELECTION</h1>
+            <div className="display-main">
+              {cocktailsList
+                .filter(
+                  (cocktail) =>
+                    cocktail.idDrink === "11000" ||
+                    cocktail.idDrink === "13971" ||
+                    cocktail.idDrink === "13621" ||
+                    cocktail.idDrink === "17196" ||
+                    cocktail.idDrink === "11007"
+                )
+                .map((cocktail) => (
+                  <Card
+                    key={cocktail.namestrDrink}
+                    cocktailName={cocktail.strDrink}
+                    image={cocktail.strDrinkThumb}
+                    handlePage={() => {
+                      setCurrentCocktail(cocktail);
+                    }}
+                  />
+                ))}
+            </div>
+          </section>
+          <div className="display-main rand">
+            {cocktailsList
+              .filter((cocktail) =>
+                cocktail.strDrink
+                  .toLowerCase()
+                  .includes(userSearch.toLowerCase())
+              )
+              .map((cocktail) => (
+                <Card
+                  key={cocktail.strDrink}
+                  cocktailName={cocktail.strDrink}
+                  image={cocktail.strDrinkThumb}
+                  handlePage={() => {
+                    setCurrentCocktail(cocktail);
+                  }}
+                />
+              ))}
+          </div>
+        </>
+      )}
     </div>
   );
 }

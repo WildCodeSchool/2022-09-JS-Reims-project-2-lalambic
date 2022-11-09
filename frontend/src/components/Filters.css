@@ -1,9 +1,7 @@
 .filters {
   display: flex;
-  min-width: 100vw;
   justify-content: center;
   gap: 0.8rem;
-
   margin: 0rem 1.2rem 1rem 1.5rem;
 }
 
