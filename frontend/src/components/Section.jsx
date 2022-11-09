@@ -17,6 +17,7 @@ function Section({ userSearch, cocktailsList }) {
   }
   return (
     <div className="section">
+      <h1 className="title">NOTRE SÉLECTION DE COCKTAIL</h1>
       <div className="caroussel">
         <div ref={section} className="display-main">
           {cocktails.slice(0, 10).map((cocktail) => (

@@ -43,7 +43,9 @@ function App() {
       {!loading && cocktailsList ? (
         <Section userSearch={userSearch} cocktailsList={cocktailsList} />
       ) : (
-        <p>{loading ? "loading cocktails..." : "no matching result"}</p>
+        <p className="search-not-found">
+          {loading ? "Loading cocktails..." : "No matching result"}
+        </p>
       )}
     </div>
   );
