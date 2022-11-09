@@ -1,9 +1,18 @@
 import CocktailType from "../prop-types/CocktailType";
 
-function CocktailPage({ cocktailName, image, instructions, ingredients }) {
+function CocktailPage({
+  cocktailName,
+  image,
+  instructions,
+  ingredients,
+  handlePage,
+}) {
   return (
-    <div className="page">
-      <img className="cardstyle" src={image} alt={cocktailName} />
+    <div>
+      <button className="cross" type="button" onClick={handlePage}>
+        ❌
+      </button>
+      <img src={image} alt={cocktailName} />
       <p className="cocktail-name"> {cocktailName} </p>
       <p className="instructions"> {instructions} </p>
       <ul className="ingredients"> {ingredients} </ul>

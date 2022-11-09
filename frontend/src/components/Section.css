@@ -10,6 +10,10 @@
   margin: 0 1rem 2rem;
 }
 
+.hidden {
+  display: none;
+}
+
 .caroussel {
   display: flex;
   overflow-x: scroll;
@@ -31,17 +35,36 @@ img.cardstyle {
   gap: 1rem;
 }
 
-.rand img.cardstyle {
-  max-width: 40vw;
-  max-height: auto;
-}
-
 figure.card {
   scroll-snap-align: center;
 }
 
-.title{
-  font-size: 1.2rem;
-  margin: 2rem 1.2rem 0.9rem;
-  font-weight: bold;
+.App {
+  position: relative;
+}
+.display-cocktail {
+  position: absolute;
+  top: 0;
+  left: -100vw;
+  min-height: 100vh;
+  width: 100%;
+  background-color: rgb(44, 133, 211);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.open {
+  left: 0;
+}
+
+.display-cocktail button {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+.display-cocktail img {
+  width: 10rem;
+  max-height: auto;
 }
