@@ -8,6 +8,7 @@ function App() {
   const [userSearch, setUserSearch] = useState("");
   const [cocktailsList, setCocktailsList] = useState([]);
   const [loading, setLoading] = useState(true);
+
   const url = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${userSearch}`;
 
   function handleChange(e) {
