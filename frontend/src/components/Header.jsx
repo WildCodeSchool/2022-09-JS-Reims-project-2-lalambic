@@ -18,9 +18,22 @@ function Header({ userSearch, onSubmit, onChange }) {
       />
       <nav className="navbarfilters">
         <ul className="filters">
-          <li className="filter"> Name </li>
-          <li className="filter"> Ingredients </li>
-          <li className="filter"> Glasses </li>
+          <li className="filter">
+            <button type="button" onClick={() => ""}>
+              Name{" "}
+            </button>
+          </li>
+          <li className="filter">
+            <button type="button" onClick={() => ""}>
+              {" "}
+              Ingredients{" "}
+            </button>
+          </li>
+          <li className="filter">
+            <button type="button" onClick={() => ""}>
+              Glasses
+            </button>
+          </li>
         </ul>
       </nav>
     </header>
