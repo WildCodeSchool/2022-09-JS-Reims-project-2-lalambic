@@ -3,6 +3,7 @@ import axios from "axios";
 import Header from "./components/Header";
 import Section from "./components/Section";
 import "./App.css";
+import allCocktails from "./data/allCocktails";
 
 function App() {
   const [userSearch, setUserSearch] = useState("");
@@ -41,7 +42,7 @@ function App() {
         onChange={(e) => handleChange(e)}
       />
       {!loading && cocktailsList ? (
-        <Section userSearch={userSearch} cocktailsList={cocktailsList} />
+        <Section userSearch={userSearch} cocktailsList={allCocktails} />
       ) : (
         <p className="search-not-found">
           {loading ? "Loading cocktails..." : "No matching result"}
