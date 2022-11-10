@@ -7,6 +7,8 @@ import allCocktails from "./data/allCocktails";
 
 function App() {
   const [userSearch, setUserSearch] = useState("");
+  const [searchValue, setSearchValue] = useState("");
+  /* const [actvieSearch, setActiveSearch] = useState(false); */
   const [cocktailsList, setCocktailsList] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -17,11 +19,12 @@ function App() {
   }
   function handleSubmit(e) {
     e.preventDefault();
-
-    const cocktailsListUpdated = cocktailsList.filter((cocktail) =>
-      cocktail.strDrink.includes(userSearch)
-    );
-    setCocktailsList(cocktailsListUpdated);
+    setSearchValue(e.target.children[0].value);
+    if (e.target.children[0].value === "") {
+      /* setActiveSearch(false); */
+    } else {
+      /* setActiveSearch(true); */
+    }
   }
 
   const fetchApi = () => {
@@ -43,7 +46,7 @@ function App() {
         onChange={(e) => handleChange(e)}
       />
       {!loading && cocktailsList ? (
-        <Section userSearch={userSearch} cocktailsList={allCocktails} />
+        <Section searchValue={searchValue} cocktailsList={allCocktails} />
       ) : (
         <p className="search-not-found">
           {loading ? "Loading cocktails..." : "No matching result"}

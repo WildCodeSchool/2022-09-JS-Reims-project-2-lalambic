@@ -5,7 +5,7 @@ import CocktailPage from "./CocktailPage";
 import CocktailType from "../prop-types/CocktailType";
 import "./Section.css";
 
-function Section({ userSearch, cocktailsList }) {
+function Section({ searchValue, cocktailsList }) {
   const [currentCocktail, setCurrentCocktail] = useState();
 
   return (
@@ -52,7 +52,7 @@ function Section({ userSearch, cocktailsList }) {
           <div className="display-main rand">
             {cocktailsList
               .filter((cocktail) =>
-                cocktail.name.toLowerCase().includes(userSearch.toLowerCase())
+                cocktail.name.toLowerCase().includes(searchValue.toLowerCase())
               )
               .map((cocktail) => (
                 <Card
@@ -72,6 +72,6 @@ function Section({ userSearch, cocktailsList }) {
 }
 Section.propTypes = {
   cocktailsList: PropTypes.arrayOf(CocktailType).isRequired,
-  userSearch: PropTypes.string.isRequired,
+  searchValue: PropTypes.string.isRequired,
 };
 export default Section;
