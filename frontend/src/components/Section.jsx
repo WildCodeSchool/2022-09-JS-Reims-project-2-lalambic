@@ -13,11 +13,11 @@ function Section({ userSearch, cocktailsList }) {
       {currentCocktail != null ? (
         <div className="display-cocktail">
           <CocktailPage
-            cocktailName={currentCocktail.strDrink}
-            image={currentCocktail.strDrinkThumb}
-            ingredients={currentCocktail.strIngredient1}
-            measurements={currentCocktail.strMeasure1}
-            instructions={currentCocktail.strInstructions}
+            cocktailName={currentCocktail.name}
+            image={currentCocktail.image}
+            ingredients={currentCocktail.ingredients}
+            measurements={currentCocktail.measures}
+            instructions={currentCocktail.instructions}
             handlePage={() => {
               setCurrentCocktail(null);
             }}
@@ -31,17 +31,17 @@ function Section({ userSearch, cocktailsList }) {
               {cocktailsList
                 .filter(
                   (cocktail) =>
-                    cocktail.idDrink === "11000" ||
-                    cocktail.idDrink === "13971" ||
-                    cocktail.idDrink === "13621" ||
-                    cocktail.idDrink === "17196" ||
-                    cocktail.idDrink === "11007"
+                    cocktail.id === "11000" ||
+                    cocktail.id === "13971" ||
+                    cocktail.id === "13621" ||
+                    cocktail.id === "17196" ||
+                    cocktail.id === "11007"
                 )
                 .map((cocktail) => (
                   <Card
-                    key={cocktail.namestrDrink}
-                    cocktailName={cocktail.strDrink}
-                    image={cocktail.strDrinkThumb}
+                    key={cocktail.id}
+                    cocktailName={cocktail.name}
+                    image={cocktail.image}
                     handlePage={() => {
                       setCurrentCocktail(cocktail);
                     }}
@@ -52,15 +52,13 @@ function Section({ userSearch, cocktailsList }) {
           <div className="display-main rand">
             {cocktailsList
               .filter((cocktail) =>
-                cocktail.strDrink
-                  .toLowerCase()
-                  .includes(userSearch.toLowerCase())
+                cocktail.name.toLowerCase().includes(userSearch.toLowerCase())
               )
               .map((cocktail) => (
                 <Card
-                  key={cocktail.strDrink}
-                  cocktailName={cocktail.strDrink}
-                  image={cocktail.strDrinkThumb}
+                  key={cocktail.id}
+                  cocktailName={cocktail.name}
+                  image={cocktail.image}
                   handlePage={() => {
                     setCurrentCocktail(cocktail);
                   }}
