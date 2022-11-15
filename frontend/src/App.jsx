@@ -9,6 +9,7 @@ function App() {
   const [userSearch, setUserSearch] = useState("");
   const [cocktailsList, setCocktailsList] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [isShow, setIsShow] = useState("");
 
   const url = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${userSearch}`;
 
@@ -41,14 +42,21 @@ function App() {
         userSearch={userSearch}
         onSubmit={(e) => handleSubmit(e)}
         onChange={(e) => handleChange(e)}
+        setIsShow={setIsShow}
+        isShow={isShow}
       />
-      {!loading && cocktailsList ? (
+      {/*  <NavBar setIsShow={setIsShow} isShow={isShow} />   */}
+      {!loading && cocktailsList && isShow === "" && (
         <Section userSearch={userSearch} cocktailsList={allCocktails} />
-      ) : (
+      )}
+      {loading && !cocktailsList && (
         <p className="search-not-found">
           {loading ? "Loading cocktails..." : "No matching result"}
         </p>
       )}
+      {isShow === "name" && "MY PAGES OF FILTERS NAME"}
+      {isShow === "Ingredients" && "MY PAGES OF FILTERS INGREDIENTS"}
+      {isShow === "Glasses" && "MY PAGES OF FILTERS GLASSES"}
     </div>
   );
 }
