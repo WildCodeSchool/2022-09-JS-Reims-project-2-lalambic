@@ -25,11 +25,13 @@ function Section({ searchValue, cocktails, IsSearchActive }) {
         </div>
       ) : (
         <>
+
           {!IsSearchActive && (
-            <section className="caroussel">
+            <section className="carousel">
               <h1 className="title">OUR COCKTAIL SELECTION</h1>
-              <div className="display-main">
-                {cocktails
+              <div className="carousel-container">
+                <div className="display-main">
+                  {cocktails
                   .filter(
                     (cocktail) =>
                       cocktail.id === "11000" ||
@@ -49,7 +51,8 @@ function Section({ searchValue, cocktails, IsSearchActive }) {
                     />
                   ))}
               </div>
-            </section>
+            </div>
+           </section>
           )}
           <div className="display-main rand">
             {cocktails
