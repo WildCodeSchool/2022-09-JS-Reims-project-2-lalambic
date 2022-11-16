@@ -7,7 +7,7 @@ function ButtonFilters({ setIsShow }) {
     <ul className="filters">
       <li className="filter">
         <button type="button" onClick={() => setIsShow("name")}>
-          Name
+          Category
         </button>
       </li>
       <li className="filter">
