@@ -45,7 +45,7 @@ function App() {
         <FilterPage setIsShow={setIsShow} isShow={isShow} />
       )}
       {isShow === "home" && (
-        <Section userSearch={userSearch} cocktailsList={allCocktails} />
+        <Section userSearch={userSearch} cocktailsList={cocktails} />
       )}
     </div>
   );
