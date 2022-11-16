@@ -6,6 +6,7 @@ import useFetch from "./data/allCocktails";
 
 function App() {
   const [userSearch, setUserSearch] = useState("");
+  const [isShow, setIsShow] = useState("");
   const [searchValue, setSearchValue] = useState("");
   const { cocktails, isLoading } = useFetch();
 
@@ -23,14 +24,19 @@ function App() {
         userSearch={userSearch}
         onSubmit={(e) => handleSubmit(e)}
         onChange={(e) => handleChange(e)}
+        setIsShow={setIsShow}
+        isShow={isShow}
       />
-      {!isLoading && cocktails ? (
+      {!isLoading && cocktails && isShow === "" ? (
         <Section searchValue={searchValue} cocktailsList={cocktails} />
       ) : (
         <p className="search-not-found">
           {isLoading ? "Loading cocktails..." : "No matching result"}
         </p>
       )}
+      {isShow === "name" && "MY PAGES OF FILTERS NAME"}
+      {isShow === "Ingredients" && "MY PAGES OF FILTERS INGREDIENTS"}
+      {isShow === "Glasses" && "MY PAGES OF FILTERS GLASSES"}
     </div>
   );
 }

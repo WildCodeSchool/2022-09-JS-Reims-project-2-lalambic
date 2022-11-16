@@ -25,8 +25,7 @@ function Section({ searchValue, cocktailsList }) {
         </div>
       ) : (
         <>
-          <section className="caroussel">
-            <h1 className="title">OUR COCKTAIL SELECTION</h1>
+          <section className="carrousel">
             <div className="display-main">
               {cocktailsList
                 .filter(
