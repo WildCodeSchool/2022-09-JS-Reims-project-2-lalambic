@@ -14,17 +14,19 @@ function Header({
 }) {
   return (
     <header className="header">
-      <img
-        src="../src/assets/logo-texte.png"
-        alt="logo"
-        className="logo-header"
-      />
-      <SearchBar
-        userSearch={userSearch}
-        onSubmit={onSubmit}
-        onChange={onChange}
-        placeholder={placeholder}
-      />
+      <div className="logosearchbar">
+        <img
+          src="../src/assets/logo-texte.png"
+          alt="logo"
+          className="logo-header"
+        />
+        <SearchBar
+          userSearch={userSearch}
+          onSubmit={onSubmit}
+          onChange={onChange}
+          placeholder={placeholder}
+        />
+      </div>
       <NavBarFilters setIsShow={setIsShow} isShow={isShow} />
     </header>
   );
