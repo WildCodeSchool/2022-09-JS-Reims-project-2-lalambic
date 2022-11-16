@@ -7,7 +7,7 @@ import useFetch from "./data/allCocktails";
 function App() {
   const [userSearch, setUserSearch] = useState("");
   const [searchValue, setSearchValue] = useState("");
-  const [searchIsActive, setSearchIsActive] = useState(false);
+  const [IsSearchActive, setIsSearchActive] = useState(false);
   const [placeholder, setPlaceholder] = useState("Search for anything...");
 
   const { cocktails, isLoading } = useFetch();
@@ -26,9 +26,9 @@ function App() {
       setUserSearch("");
       setPlaceholder("Search for anything...");
       if (userSearch !== "") {
-        setSearchIsActive(true);
+        setIsSearchActive(true);
       } else {
-        setSearchIsActive(false);
+        setIsSearchActive(false);
       }
     } else {
       setUserSearch("");
@@ -47,8 +47,8 @@ function App() {
       {!isLoading && cocktails ? (
         <Section
           searchValue={searchValue}
-          cocktailsList={cocktails}
-          searchIsActive={searchIsActive}
+          cocktails={cocktails}
+          IsSearchActive={IsSearchActive}
         />
       ) : (
         <p className="search-not-found">

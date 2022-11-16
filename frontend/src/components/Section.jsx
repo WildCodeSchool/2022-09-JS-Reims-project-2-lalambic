@@ -5,7 +5,7 @@ import CocktailPage from "./CocktailPage";
 import CocktailType from "../prop-types/CocktailType";
 import "./Section.css";
 
-function Section({ searchValue, cocktailsList }) {
+function Section({ searchValue, cocktails, IsSearchActive }) {
   const [currentCocktail, setCurrentCocktail] = useState();
 
   return (
@@ -25,32 +25,34 @@ function Section({ searchValue, cocktailsList }) {
         </div>
       ) : (
         <>
-          <section className="caroussel">
-            <h1 className="title">OUR COCKTAIL SELECTION</h1>
-            <div className="display-main">
-              {cocktailsList
-                .filter(
-                  (cocktail) =>
-                    cocktail.id === "11000" ||
-                    cocktail.id === "13971" ||
-                    cocktail.id === "13621" ||
-                    cocktail.id === "17196" ||
-                    cocktail.id === "11007"
-                )
-                .map((cocktail) => (
-                  <Card
-                    key={cocktail.id}
-                    cocktailName={cocktail.name}
-                    image={cocktail.image}
-                    handlePage={() => {
-                      setCurrentCocktail(cocktail);
-                    }}
-                  />
-                ))}
-            </div>
-          </section>
+          {!IsSearchActive && (
+            <section className="caroussel">
+              <h1 className="title">OUR COCKTAIL SELECTION</h1>
+              <div className="display-main">
+                {cocktails
+                  .filter(
+                    (cocktail) =>
+                      cocktail.id === "11000" ||
+                      cocktail.id === "13971" ||
+                      cocktail.id === "13621" ||
+                      cocktail.id === "17196" ||
+                      cocktail.id === "11007"
+                  )
+                  .map((cocktail) => (
+                    <Card
+                      key={cocktail.id}
+                      cocktailName={cocktail.name}
+                      image={cocktail.image}
+                      handlePage={() => {
+                        setCurrentCocktail(cocktail);
+                      }}
+                    />
+                  ))}
+              </div>
+            </section>
+          )}
           <div className="display-main rand">
-            {cocktailsList
+            {cocktails
               .filter((cocktail) =>
                 cocktail.name.toLowerCase().includes(searchValue.toLowerCase())
               )
@@ -71,7 +73,8 @@ function Section({ searchValue, cocktailsList }) {
   );
 }
 Section.propTypes = {
-  cocktailsList: PropTypes.arrayOf(CocktailType).isRequired,
+  cocktails: PropTypes.arrayOf(CocktailType).isRequired,
   searchValue: PropTypes.string.isRequired,
+  IsSearchActive: PropTypes.bool.isRequired,
 };
 export default Section;
