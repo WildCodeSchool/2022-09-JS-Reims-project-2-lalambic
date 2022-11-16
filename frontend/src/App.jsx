@@ -7,8 +7,6 @@ import useFetch from "./data/allCocktails";
 function App() {
   const [userSearch, setUserSearch] = useState("");
   const [searchValue, setSearchValue] = useState("");
-  /* const [actvieSearch, setActiveSearch] = useState(false); */
-  /* const [cocktailsList, setCocktailsList] = useState([]); */
   const { cocktails, isLoading } = useFetch();
 
   function handleChange(e) {
@@ -17,11 +15,6 @@ function App() {
   function handleSubmit(e) {
     e.preventDefault();
     setSearchValue(e.target.children[0].value);
-    if (e.target.children[0].value === "") {
-      /* setActiveSearch(false); */
-    } else {
-      /* setActiveSearch(true); */
-    }
   }
 
   return (
