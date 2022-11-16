@@ -45,7 +45,6 @@ function App() {
         setIsShow={setIsShow}
         isShow={isShow}
       />
-      {/*  <NavBar setIsShow={setIsShow} isShow={isShow} />   */}
       {!loading && cocktailsList && isShow === "" && (
         <Section userSearch={userSearch} cocktailsList={allCocktails} />
       )}
