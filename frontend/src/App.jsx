@@ -51,9 +51,7 @@ function App() {
           IsSearchActive={IsSearchActive}
         />
       ) : (
-        <p className="search-not-found">
-          {isLoading ? "Loading cocktails..." : "No matching result"}
-        </p>
+        <p className="search-not-found">Loading cocktails...</p>
       )}
     </div>
   );
