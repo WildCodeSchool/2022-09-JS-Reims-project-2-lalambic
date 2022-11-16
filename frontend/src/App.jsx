@@ -73,14 +73,13 @@ function App() {
         setIsShow={setIsShow}
         isShow={isShow}
       />
-      {!isLoading && cocktails && isShow === "" ? (
+      {isLoading && <p className="search-not-found">Loading cocktails...</p>}
+      {!isLoading && isShow === "" && (
         <Section
           searchValue={searchValue}
           cocktails={cocktails}
           IsSearchActive={IsSearchActive}
         />
-      ) : (
-        <p className="search-not-found">Loading cocktails...</p>
       )}
       {isShow === "name" && (
         <FilterPage setIsShow={setIsShow} isShow={isShow} />
