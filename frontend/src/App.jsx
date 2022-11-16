@@ -1,39 +1,48 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import Header from "./components/Header";
 import Section from "./components/Section";
+import FilterPage from "./components/FilterPage";
 import "./App.css";
-import allCocktails from "./data/allCocktails";
+import useFetch from "./data/allCocktails";
 
 function App() {
   const [userSearch, setUserSearch] = useState("");
-  const [cocktailsList, setCocktailsList] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  const url = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${userSearch}`;
+  const [isShow, setIsShow] = useState("");
+  const [searchValue, setSearchValue] = useState("");
+  const { cocktails, isLoading } = useFetch();
 
   function handleChange(e) {
     setUserSearch(e.target.value);
   }
   function handleSubmit(e) {
     e.preventDefault();
-
-    const cocktailsListUpdated = cocktailsList.filter((cocktail) =>
-      cocktail.strDrink.includes(userSearch)
-    );
-    setCocktailsList(cocktailsListUpdated);
+    setSearchValue(e.target.children[0].value);
   }
 
-  const fetchApi = () => {
-    axios.get(url).then((res) => {
-      setCocktailsList(res.data.drinks);
-      setLoading(false);
-    });
-  };
-
   useEffect(() => {
-    fetchApi();
-  }, [url]);
+    const urls = [
+      "https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list",
+      "https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list",
+      "https://www.thecocktaildb.com/api/json/v1/1/list.php?a=list",
+    ];
+
+    Promise.all(urls.map((url) => axios.get(url))).then((allResponses) => {
+      const filters = {};
+
+      allResponses.forEach((response, index) => {
+        if (index === 0) {
+          filters.categories = response.data.drinks;
+        }
+        if (index === 1) {
+          filters.ingredients = response.data.drinks;
+        }
+        if (index === 2) {
+          filters.alcoholic = response.data.drinks;
+        }
+      });
+    });
+  }, []);
 
   return (
     <div className="App">
@@ -41,13 +50,27 @@ function App() {
         userSearch={userSearch}
         onSubmit={(e) => handleSubmit(e)}
         onChange={(e) => handleChange(e)}
+        setIsShow={setIsShow}
+        isShow={isShow}
       />
-      {!loading && cocktailsList ? (
-        <Section userSearch={userSearch} cocktailsList={allCocktails} />
+      {!isLoading && cocktails && isShow === "" ? (
+        <Section searchValue={searchValue} cocktailsList={cocktails} />
       ) : (
         <p className="search-not-found">
-          {loading ? "Loading cocktails..." : "No matching result"}
+          {isLoading ? "Loading cocktails..." : "No matching result"}
         </p>
+      )}
+      {isShow === "name" && (
+        <FilterPage setIsShow={setIsShow} isShow={isShow} />
+      )}
+      {isShow === "Ingredients" && (
+        <FilterPage setIsShow={setIsShow} isShow={isShow} />
+      )}
+      {isShow === "Glasses" && (
+        <FilterPage setIsShow={setIsShow} isShow={isShow} />
+      )}
+      {isShow === "home" && (
+        <Section userSearch={userSearch} cocktailsList={cocktails} />
       )}
     </div>
   );

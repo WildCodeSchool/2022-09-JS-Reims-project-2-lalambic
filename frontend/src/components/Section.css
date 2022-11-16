@@ -12,6 +12,7 @@
 }
 
 .display-main {
+  display: flex;
   font-family: "Roboto", sans-serif;
   color: #090909;
   display: flex;
