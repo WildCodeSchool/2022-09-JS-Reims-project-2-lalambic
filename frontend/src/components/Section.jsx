@@ -27,7 +27,7 @@ function Section({ searchValue, cocktails, IsSearchActive }) {
         <>
           {!IsSearchActive && (
             <section className="carousel">
-              <h1 className="title">OUR COCKTAILS SELECTION</h1>
+              <h1 className="title">OUR COCKTAIL SELECTION</h1>
               <div className="carousel-container">
                 <div className="display-main">
                   {cocktails
