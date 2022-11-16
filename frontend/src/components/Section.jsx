@@ -1,13 +1,16 @@
 import PropTypes from "prop-types";
-import { useState } from "react";
 import Card from "./Card";
 import CocktailPage from "./CocktailPage";
 import CocktailType from "../prop-types/CocktailType";
 import "./Section.css";
 
-function Section({ searchValue, cocktails, IsSearchActive }) {
-  const [currentCocktail, setCurrentCocktail] = useState();
-
+function Section({
+  searchValue,
+  cocktails,
+  IsSearchActive,
+  currentCocktail,
+  setCurrentCocktail,
+}) {
   return (
     <div className="section">
       {currentCocktail != null ? (
@@ -78,5 +81,10 @@ Section.propTypes = {
   cocktails: PropTypes.arrayOf(CocktailType).isRequired,
   searchValue: PropTypes.string.isRequired,
   IsSearchActive: PropTypes.bool.isRequired,
+  currentCocktail: CocktailType,
+  setCurrentCocktail: PropTypes.func.isRequired,
+};
+Section.defaultProps = {
+  currentCocktail: null,
 };
 export default Section;
