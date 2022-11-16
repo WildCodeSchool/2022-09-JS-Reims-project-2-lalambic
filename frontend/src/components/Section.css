@@ -1,16 +1,27 @@
+.title {
+  margin: 2rem 0.2rem 1.2rem 1rem;
+  font-size: 3.2vh;
+}
+
+.carousel-container {
+  display: flex;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  touch-action: auto;
+}
+
 .display-main {
   display: flex;
   font-family: "Roboto", sans-serif;
   color: #090909;
+  display: flex;
   justify-content: space-around;
   text-align: center;
   align-items: center;
   gap: 1rem;
   margin: 0 1rem 2rem;
-  overflow-x: scroll;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-  touch-action: auto;
+  scroll-snap-align: center;
 }
 
 img.cardstyle {
@@ -23,10 +34,6 @@ img.cardstyle {
 .rand {
   flex-wrap: wrap;
   gap: 1rem;
-}
-
-figure.card {
-  scroll-snap-align: center;
 }
 
 .display-cocktail img {
@@ -58,9 +65,15 @@ figure.card {
   box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.83);
 }
 
-.title {
-  margin: 2rem 0.2rem 1.2rem 1rem;
-  font-size: 3.2vh;
+ul {
+  list-style: none;
+}
+
+.list {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  column-gap: 20vw;
 }
 
 .content p {

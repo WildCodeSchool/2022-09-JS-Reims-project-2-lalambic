@@ -10,6 +10,9 @@ function App() {
   const [userSearch, setUserSearch] = useState("");
   const [isShow, setIsShow] = useState("");
   const [searchValue, setSearchValue] = useState("");
+  const [IsSearchActive, setIsSearchActive] = useState(false);
+  const [placeholder, setPlaceholder] = useState("Search for anything...");
+
   const { cocktails, isLoading } = useFetch();
 
   function handleChange(e) {
@@ -17,7 +20,23 @@ function App() {
   }
   function handleSubmit(e) {
     e.preventDefault();
-    setSearchValue(e.target.children[0].value);
+    if (
+      cocktails.filter((cocktail) =>
+        cocktail.name.toLowerCase().includes(userSearch.toLowerCase())
+      ).length !== 0
+    ) {
+      setSearchValue(userSearch);
+      setUserSearch("");
+      setPlaceholder("Search for anything...");
+      if (userSearch !== "") {
+        setIsSearchActive(true);
+      } else {
+        setIsSearchActive(false);
+      }
+    } else {
+      setUserSearch("");
+      setPlaceholder(`"${userSearch}" not found`);
+    }
   }
 
   useEffect(() => {
@@ -50,15 +69,18 @@ function App() {
         userSearch={userSearch}
         onSubmit={(e) => handleSubmit(e)}
         onChange={(e) => handleChange(e)}
-        setIsShow={setIsShow}
-        isShow={isShow}
+        placeholder={placeholder}
       />
-      {!isLoading && cocktails && isShow === "" ? (
-        <Section searchValue={searchValue} cocktailsList={cocktails} />
+      {!isLoading && cocktails && isShow ? (
+        <Section
+          searchValue={searchValue}
+          cocktails={cocktails}
+          IsSearchActive={IsSearchActive}
+          setIsShow={setIsShow}
+          isShow={isShow}
+        />
       ) : (
-        <p className="search-not-found">
-          {isLoading ? "Loading cocktails..." : "No matching result"}
-        </p>
+        <p className="search-not-found">Loading cocktails...</p>
       )}
       {isShow === "name" && (
         <FilterPage setIsShow={setIsShow} isShow={isShow} />
@@ -70,7 +92,7 @@ function App() {
         <FilterPage setIsShow={setIsShow} isShow={isShow} />
       )}
       {isShow === "home" && (
-        <Section searchValue={searchValue} cocktailsList={cocktails} />
+        <Section searchValue={searchValue} cocktails={cocktails} />
       )}
     </div>
   );

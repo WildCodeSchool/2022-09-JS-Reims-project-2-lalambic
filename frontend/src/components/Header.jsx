@@ -4,7 +4,14 @@ import NavBarFilters from "./NavBarFilters";
 import "./Header.css";
 import "./Filters.css";
 
-function Header({ userSearch, onSubmit, onChange, setIsShow, isShow }) {
+function Header({
+  userSearch,
+  onSubmit,
+  onChange,
+  setIsShow,
+  isShow,
+  placeholder,
+}) {
   return (
     <header className="header">
       <div className="logosearchbar">
@@ -17,6 +24,7 @@ function Header({ userSearch, onSubmit, onChange, setIsShow, isShow }) {
           userSearch={userSearch}
           onSubmit={onSubmit}
           onChange={onChange}
+          placeholder={placeholder}
         />
       </div>
       <NavBarFilters setIsShow={setIsShow} isShow={isShow} />
@@ -27,6 +35,7 @@ Header.propTypes = {
   userSearch: PropTypes.string.isRequired,
   onSubmit: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired,
+  placeholder: PropTypes.string.isRequired,
   setIsShow: PropTypes.func.isRequired,
   isShow: PropTypes.string.isRequired,
 };
