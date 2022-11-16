@@ -36,13 +36,13 @@ const useFetch = () => {
               glass,
               instructions,
               image,
-              ingredients: Object.entries(cocktail)
+              ingredients: Object.keys(cocktail)
                 .filter(
                   (key) =>
                     key.includes("strIngredient") && cocktail[key] != null
                 )
                 .map((key) => cocktail[key]),
-              measures: Object.entries(cocktail)
+              measures: Object.keys(cocktail)
                 .filter(
                   (key) => key.includes("strMeasure") && cocktail[key] != null
                 )
