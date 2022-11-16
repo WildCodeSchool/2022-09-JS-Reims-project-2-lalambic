@@ -7,6 +7,9 @@ import useFetch from "./data/allCocktails";
 function App() {
   const [userSearch, setUserSearch] = useState("");
   const [searchValue, setSearchValue] = useState("");
+  const [searchIsActive, setSearchIsActive] = useState(false);
+  /* const [placeholder, setPlaceholder] = useState("Search for anything..."); */
+
   const { cocktails, isLoading } = useFetch();
 
   function handleChange(e) {
@@ -14,7 +17,22 @@ function App() {
   }
   function handleSubmit(e) {
     e.preventDefault();
-    setSearchValue(e.target.children[0].value);
+    if (
+      cocktails.filter((cocktail) =>
+        cocktail.name.toLowerCase().includes(userSearch.toLowerCase())
+      ).length !== 0
+    ) {
+      setSearchValue(userSearch);
+      setUserSearch("");
+      /* setPlaceholder("Search for anything..."); */
+      if (userSearch !== "") {
+        setSearchIsActive(true);
+      } else {
+        setSearchIsActive(false);
+      }
+    } else {
+      setUserSearch("");
+    }
   }
 
   return (
@@ -25,7 +43,11 @@ function App() {
         onChange={(e) => handleChange(e)}
       />
       {!isLoading && cocktails ? (
-        <Section searchValue={searchValue} cocktailsList={cocktails} />
+        <Section
+          searchValue={searchValue}
+          cocktailsList={cocktails}
+          searchIsActive={searchIsActive}
+        />
       ) : (
         <p className="search-not-found">
           {isLoading ? "Loading cocktails..." : "No matching result"}

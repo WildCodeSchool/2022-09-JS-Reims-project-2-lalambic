@@ -14,12 +14,11 @@
   touch-action: auto;
 }
 
-
 img.cardstyle {
   max-width: 15rem;
   max-height: 15rem;
   border-radius: 0.7rem;
-  box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.83);
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.83);
 }
 
 .rand {
@@ -36,35 +35,35 @@ figure.card {
   max-height: auto;
 }
 
-.cross{
+.cross {
   background: none;
-	border: none;
+  border: none;
 }
 
-.cross img{
+.cross img {
   width: 3rem;
 }
 
-.content{
-  display:flex;
-  flex-direction:column;
+.content {
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  margin-top:15vh;
+  margin-top: 15vh;
   justify-content: space-between;
   gap: 2rem;
 }
 
-.content img{
+.content img {
   width: 20rem;
   border-radius: 0.7rem;
-  box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.83);
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.83);
 }
 
-.title{
-  margin:2rem 0.2rem 1.2rem 1rem;
-  font-size: 3.2vh; 
+.title {
+  margin: 2rem 0.2rem 1.2rem 1rem;
+  font-size: 3.2vh;
 }
 
-.content p{
-  margin-left:2rem; 
+.content p {
+  margin-left: 2rem;
 }
