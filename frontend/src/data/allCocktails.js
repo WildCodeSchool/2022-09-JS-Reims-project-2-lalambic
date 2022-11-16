@@ -1,38 +1,70 @@
 import axios from "axios";
-
-const allCocktails = [];
-
-const url = "https://www.thecocktaildb.com/api/json/v1/1/search.php?f=";
+import { useState, useEffect } from "react";
 
 const alphabet = "abcdefghijklmnopqrstvwyz".split("");
 
-const fetchApi = (letter) => {
-  axios.get(`${url}${letter}`).then((res) => {
-    res.data.drinks.forEach((cocktail) => {
-      const newCocktail = {
-        id: cocktail.idDrink,
-        name: cocktail.strDrink,
-        category: cocktail.strCategory,
-        alcoholic: cocktail.strAlcoholic,
-        glass: cocktail.strGlass,
-        instructions: cocktail.strInstructions,
-        image: cocktail.strDrinkThumb,
-        ingredients: [],
-        measures: [],
-      };
-      for (const [key, value] of Object.entries(cocktail)) {
-        if (key.includes("strIngredient") && value != null) {
-          newCocktail.ingredients.push(value);
-        }
-        if (key.includes("strMeasure") && value != null) {
-          newCocktail.measures.push(value);
-        }
-      }
-      allCocktails.push(newCocktail);
+const useFetch = () => {
+  const [isLoading, setIsLoading] = useState(true);
+  const [cocktails, setCocktails] = useState([]);
+
+  function fetchApi() {
+    /* fetch the api for each alphabet letter(excepted for u and x) to download all cocktails data */
+    Promise.all(
+      alphabet.map((letter) =>
+        axios.get(
+          `https://www.thecocktaildb.com/api/json/v1/1/search.php?f=${letter}`
+        )
+      )
+    ).then((responses) => {
+      const allCocktails = responses.reduce(
+        (allPreviousCocktails, response) => {
+          const cocktailsForThisLetter = response.data.drinks.map(
+            ({
+              idDrink: id,
+              strDrink: name,
+              strCategory: category,
+              strAlcoholic: alcoholic,
+              strGlass: glass,
+              strInstructions: instructions,
+              strDrinkThumb: image,
+              ...cocktail
+            }) => ({
+              id,
+              name,
+              category,
+              alcoholic,
+              glass,
+              instructions,
+              image,
+              ingredients: Object.entries(cocktail)
+                .filter(
+                  (key) =>
+                    key.includes("strIngredient") && cocktail[key] != null
+                )
+                .map((key) => cocktail[key]),
+              measures: Object.entries(cocktail)
+                .filter(
+                  (key) => key.includes("strMeasure") && cocktail[key] != null
+                )
+                .map((key) => cocktail[key]),
+            })
+          );
+
+          return [...allPreviousCocktails, ...cocktailsForThisLetter];
+        },
+        []
+      );
+
+      setCocktails(allCocktails);
+      setIsLoading(false);
     });
-  });
+  }
+
+  useEffect(() => {
+    fetchApi();
+  }, []);
+
+  return { cocktails, isLoading };
 };
 
-alphabet.forEach((letter) => fetchApi(letter));
-
-export default allCocktails;
+export default useFetch;
