@@ -9,7 +9,7 @@
   border: none;
   border-radius: 50px;
   font-size: large;
-  margin-bottom: 1.4rem;
   font-family: var(--main-font-text);
   background-color: #d3d3d3;
+  width: 70vw;
 }

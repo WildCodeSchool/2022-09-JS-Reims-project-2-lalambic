@@ -7,16 +7,18 @@ import "./Filters.css";
 function Header({ userSearch, onSubmit, onChange, setIsShow, isShow }) {
   return (
     <header className="header">
-      <img
-        src="../src/assets/logo-texte.png"
-        alt="logo"
-        className="logo-header"
-      />
-      <SearchBar
-        userSearch={userSearch}
-        onSubmit={onSubmit}
-        onChange={onChange}
-      />
+      <div className="logosearchbar">
+        <img
+          src="../src/assets/logo-texte.png"
+          alt="logo"
+          className="logo-header"
+        />
+        <SearchBar
+          userSearch={userSearch}
+          onSubmit={onSubmit}
+          onChange={onChange}
+        />
+      </div>
       <NavBarFilters setIsShow={setIsShow} isShow={isShow} />
     </header>
   );
