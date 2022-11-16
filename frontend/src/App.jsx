@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import Header from "./components/Header";
 import Section from "./components/Section";
+import FilterPage from "./components/FilterPage";
 import "./App.css";
 import allCocktails from "./data/allCocktails";
 
@@ -53,9 +54,18 @@ function App() {
           {loading ? "Loading cocktails..." : "No matching result"}
         </p>
       )}
-      {isShow === "name" && "MY PAGES OF FILTERS NAME"}
-      {isShow === "Ingredients" && "MY PAGES OF FILTERS INGREDIENTS"}
-      {isShow === "Glasses" && "MY PAGES OF FILTERS GLASSES"}
+      {isShow === "name" && (
+        <FilterPage setIsShow={setIsShow} isShow={isShow} />
+      )}
+      {isShow === "Ingredients" && (
+        <FilterPage setIsShow={setIsShow} isShow={isShow} />
+      )}
+      {isShow === "Glasses" && (
+        <FilterPage setIsShow={setIsShow} isShow={isShow} />
+      )}
+      {isShow === "home" && (
+        <Section userSearch={userSearch} cocktailsList={allCocktails} />
+      )}
     </div>
   );
 }
