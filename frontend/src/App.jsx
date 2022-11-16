@@ -1,11 +1,14 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
 import Header from "./components/Header";
 import Section from "./components/Section";
+import FilterPage from "./components/FilterPage";
 import "./App.css";
 import useFetch from "./data/allCocktails";
 
 function App() {
   const [userSearch, setUserSearch] = useState("");
+  const [isShow, setIsShow] = useState("");
   const [searchValue, setSearchValue] = useState("");
   const [IsSearchActive, setIsSearchActive] = useState(false);
   const [placeholder, setPlaceholder] = useState("Search for anything...");
@@ -36,6 +39,30 @@ function App() {
     }
   }
 
+  useEffect(() => {
+    const urls = [
+      "https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list",
+      "https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list",
+      "https://www.thecocktaildb.com/api/json/v1/1/list.php?a=list",
+    ];
+
+    Promise.all(urls.map((url) => axios.get(url))).then((allResponses) => {
+      const filters = {};
+
+      allResponses.forEach((response, index) => {
+        if (index === 0) {
+          filters.categories = response.data.drinks;
+        }
+        if (index === 1) {
+          filters.ingredients = response.data.drinks;
+        }
+        if (index === 2) {
+          filters.alcoholic = response.data.drinks;
+        }
+      });
+    });
+  }, []);
+
   return (
     <div className="App">
       <Header
@@ -44,14 +71,28 @@ function App() {
         onChange={(e) => handleChange(e)}
         placeholder={placeholder}
       />
-      {!isLoading && cocktails ? (
+      {!isLoading && cocktails && isShow ? (
         <Section
           searchValue={searchValue}
           cocktails={cocktails}
           IsSearchActive={IsSearchActive}
+          setIsShow={setIsShow}
+          isShow={isShow}
         />
       ) : (
         <p className="search-not-found">Loading cocktails...</p>
+      )}
+      {isShow === "name" && (
+        <FilterPage setIsShow={setIsShow} isShow={isShow} />
+      )}
+      {isShow === "Ingredients" && (
+        <FilterPage setIsShow={setIsShow} isShow={isShow} />
+      )}
+      {isShow === "Glasses" && (
+        <FilterPage setIsShow={setIsShow} isShow={isShow} />
+      )}
+      {isShow === "home" && (
+        <Section searchValue={searchValue} cocktails={cocktails} />
       )}
     </div>
   );
