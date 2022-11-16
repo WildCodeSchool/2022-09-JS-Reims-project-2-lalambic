@@ -8,7 +8,7 @@ function App() {
   const [userSearch, setUserSearch] = useState("");
   const [searchValue, setSearchValue] = useState("");
   const [searchIsActive, setSearchIsActive] = useState(false);
-  /* const [placeholder, setPlaceholder] = useState("Search for anything..."); */
+  const [placeholder, setPlaceholder] = useState("Search for anything...");
 
   const { cocktails, isLoading } = useFetch();
 
@@ -24,7 +24,7 @@ function App() {
     ) {
       setSearchValue(userSearch);
       setUserSearch("");
-      /* setPlaceholder("Search for anything..."); */
+      setPlaceholder("Search for anything...");
       if (userSearch !== "") {
         setSearchIsActive(true);
       } else {
@@ -32,6 +32,7 @@ function App() {
       }
     } else {
       setUserSearch("");
+      setPlaceholder(`"${userSearch}" not found`);
     }
   }
 
@@ -41,6 +42,7 @@ function App() {
         userSearch={userSearch}
         onSubmit={(e) => handleSubmit(e)}
         onChange={(e) => handleChange(e)}
+        placeholder={placeholder}
       />
       {!isLoading && cocktails ? (
         <Section

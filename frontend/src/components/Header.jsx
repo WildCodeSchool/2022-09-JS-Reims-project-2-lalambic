@@ -3,7 +3,7 @@ import SearchBar from "./SearchBar";
 import "./Header.css";
 import "./Filters.css";
 
-function Header({ userSearch, onSubmit, onChange }) {
+function Header({ userSearch, onSubmit, onChange, placeholder }) {
   return (
     <header className="header">
       <img
@@ -15,6 +15,7 @@ function Header({ userSearch, onSubmit, onChange }) {
         userSearch={userSearch}
         onSubmit={onSubmit}
         onChange={onChange}
+        placeholder={placeholder}
       />
       <nav className="navbarfilters">
         <ul className="filters">
@@ -43,5 +44,6 @@ Header.propTypes = {
   userSearch: PropTypes.string.isRequired,
   onSubmit: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired,
+  placeholder: PropTypes.string.isRequired,
 };
 export default Header;
