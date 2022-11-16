@@ -70,14 +70,14 @@ function App() {
         onSubmit={(e) => handleSubmit(e)}
         onChange={(e) => handleChange(e)}
         placeholder={placeholder}
+        setIsShow={setIsShow}
+        isShow={isShow}
       />
-      {!isLoading && cocktails && isShow ? (
+      {!isLoading && cocktails && isShow === "" ? (
         <Section
           searchValue={searchValue}
           cocktails={cocktails}
           IsSearchActive={IsSearchActive}
-          setIsShow={setIsShow}
-          isShow={isShow}
         />
       ) : (
         <p className="search-not-found">Loading cocktails...</p>
