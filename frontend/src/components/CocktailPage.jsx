@@ -16,16 +16,18 @@ function CocktailPage({
       <div className="content">
         <img src={image} alt={cocktailName} />
         <h1 className="cocktail-name"> {cocktailName} </h1>
-        <ul className="ingredients">
-          {ingredients.map((ingredient) => (
-            <li>{ingredient}</li>
-          ))}
-        </ul>
-        <ul className="measurements">
-          {measurements.map((measure) => (
-            <li>{measure}</li>
-          ))}
-        </ul>
+        <div className="list">
+          <ul className="ingredients">
+            {ingredients.map((ingredient) => (
+              <li>{ingredient}</li>
+            ))}
+          </ul>
+          <ul className="measurements">
+            {measurements.map((measure) => (
+              <li>{measure}</li>
+            ))}
+          </ul>
+        </div>
         <p className="instructions"> {instructions} </p>
       </div>
     </div>
