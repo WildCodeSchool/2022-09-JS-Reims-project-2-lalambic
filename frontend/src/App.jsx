@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
 import Header from "./components/Header";
 import Section from "./components/Section";
 import "./App.css";
@@ -16,6 +17,30 @@ function App() {
     e.preventDefault();
     setSearchValue(e.target.children[0].value);
   }
+
+  useEffect(() => {
+    const urls = [
+      "https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list",
+      "https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list",
+      "https://www.thecocktaildb.com/api/json/v1/1/list.php?a=list",
+    ];
+
+    Promise.all(urls.map((url) => axios.get(url))).then((allResponses) => {
+      const filters = {};
+
+      allResponses.forEach((response, index) => {
+        if (index === 0) {
+          filters.categories = response.data.drinks;
+        }
+        if (index === 1) {
+          filters.ingredients = response.data.drinks;
+        }
+        if (index === 2) {
+          filters.alcoholic = response.data.drinks;
+        }
+      });
+    });
+  }, []);
 
   return (
     <div className="App">
