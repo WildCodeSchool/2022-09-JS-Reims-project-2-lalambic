@@ -6,6 +6,8 @@ import FilterPage from "./components/FilterPage";
 import "./App.css";
 import useFetch from "./data/allCocktails";
 
+const filters = {};
+
 function App() {
   const [userSearch, setUserSearch] = useState("");
   const [isShow, setIsShow] = useState("");
@@ -49,17 +51,21 @@ function App() {
     ];
 
     Promise.all(urls.map((url) => axios.get(url))).then((allResponses) => {
-      const filters = {};
-
       allResponses.forEach((response, index) => {
         if (index === 0) {
-          filters.categories = response.data.drinks;
+          filters.categories = response.data.drinks.map(
+            ({ strCategory: label }) => ({ label })
+          );
         }
         if (index === 1) {
-          filters.ingredients = response.data.drinks;
+          filters.ingredients = response.data.drinks.map(
+            ({ strIngredient1: label }) => ({ label })
+          );
         }
         if (index === 2) {
-          filters.alcoholic = response.data.drinks;
+          filters.alcoholic = response.data.drinks.map(
+            ({ strAlcoholic: label }) => ({ label })
+          );
         }
       });
     });
@@ -86,13 +92,25 @@ function App() {
         />
       )}
       {isShow === "name" && (
-        <FilterPage setIsShow={setIsShow} isShow={isShow} />
+        <FilterPage
+          setIsShow={setIsShow}
+          isShow={isShow}
+          filters={filters.categories}
+        />
       )}
       {isShow === "Ingredients" && (
-        <FilterPage setIsShow={setIsShow} isShow={isShow} />
+        <FilterPage
+          setIsShow={setIsShow}
+          isShow={isShow}
+          filters={filters.ingredients}
+        />
       )}
       {isShow === "Glasses" && (
-        <FilterPage setIsShow={setIsShow} isShow={isShow} />
+        <FilterPage
+          setIsShow={setIsShow}
+          isShow={isShow}
+          filters={filters.alcoholic}
+        />
       )}
       {isShow === "home" && (
         <Section searchValue={searchValue} cocktails={cocktails} />
