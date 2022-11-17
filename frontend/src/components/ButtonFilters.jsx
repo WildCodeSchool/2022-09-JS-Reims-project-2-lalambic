@@ -16,8 +16,8 @@ function ButtonFilters({ setIsShow }) {
         </button>
       </li>
       <li className="filter">
-        <button type="button" onClick={() => setIsShow("Glasses")}>
-          Glasses
+        <button type="button" onClick={() => setIsShow("Alcoholic")}>
+          Alcoholic
         </button>
       </li>
     </ul>

@@ -105,7 +105,7 @@ function App() {
           filters={filters.ingredients}
         />
       )}
-      {isShow === "Glasses" && (
+      {isShow === "Alcoholic" && (
         <FilterPage
           setIsShow={setIsShow}
           isShow={isShow}
