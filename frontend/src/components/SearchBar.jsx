@@ -1,9 +1,13 @@
 import PropTypes from "prop-types";
 import "./SearchBar.css";
+import loupe from "../assets/loupe.png";
 
 function SearchBar({ userSearch, onSubmit, onChange, placeholder }) {
   return (
     <form className="search-bar" onSubmit={onSubmit}>
+      <button type="submit">
+        <img src={loupe} alt="search" />
+      </button>
       <input
         className="input-search-bar"
         value={userSearch}

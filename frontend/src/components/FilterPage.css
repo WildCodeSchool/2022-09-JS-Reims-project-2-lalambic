@@ -23,7 +23,7 @@ label {
   width: 150px;
 }
 
-input {
+.inputfilter input {
   width: 20px;
   height: 20px;
   float: left;
