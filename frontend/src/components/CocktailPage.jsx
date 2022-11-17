@@ -19,12 +19,12 @@ function CocktailPage({
         <div className="list">
           <ul className="ingredients">
             {ingredients.map((ingredient) => (
-              <li>{ingredient}</li>
+              <li key={ingredient}>{ingredient}</li>
             ))}
           </ul>
           <ul className="measurements">
             {measurements.map((measure) => (
-              <li>{measure}</li>
+              <li key={measure}>{measure}</li>
             ))}
           </ul>
         </div>
