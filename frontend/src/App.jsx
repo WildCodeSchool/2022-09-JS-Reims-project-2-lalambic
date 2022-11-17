@@ -12,6 +12,7 @@ function App() {
   const [searchValue, setSearchValue] = useState("");
   const [IsSearchActive, setIsSearchActive] = useState(false);
   const [placeholder, setPlaceholder] = useState("Search for anything...");
+  const [currentCocktail, setCurrentCocktail] = useState();
 
   const { cocktails, isLoading } = useFetch();
 
@@ -25,6 +26,7 @@ function App() {
         cocktail.name.toLowerCase().includes(userSearch.toLowerCase())
       ).length !== 0
     ) {
+      setCurrentCocktail(null);
       setSearchValue(userSearch);
       setUserSearch("");
       setPlaceholder("Search for anything...");
@@ -79,6 +81,8 @@ function App() {
           searchValue={searchValue}
           cocktails={cocktails}
           IsSearchActive={IsSearchActive}
+          currentCocktail={currentCocktail}
+          setCurrentCocktail={setCurrentCocktail}
         />
       )}
       {isShow === "name" && (
