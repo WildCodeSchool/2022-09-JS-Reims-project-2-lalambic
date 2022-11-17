@@ -54,6 +54,30 @@ function Section({
                     ))}
                 </div>
               </div>
+              <h1 className="title">COCKTAIL VODKA</h1>
+              <div className="carousel-container">
+                <div className="display-main">
+                  {cocktails
+                    .filter(
+                      (cocktail) =>
+                        cocktail.id === "11000" ||
+                        cocktail.id === "13971" ||
+                        cocktail.id === "13621" ||
+                        cocktail.id === "17196" ||
+                        cocktail.id === "11007"
+                    )
+                    .map((cocktail) => (
+                      <Card
+                        key={cocktail.id}
+                        cocktailName={cocktail.name}
+                        image={cocktail.image}
+                        handlePage={() => {
+                          setCurrentCocktail(cocktail);
+                        }}
+                      />
+                    ))}
+                </div>
+              </div>
             </section>
           )}
           <div className="display-main rand">
