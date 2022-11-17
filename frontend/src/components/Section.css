@@ -24,11 +24,25 @@
   scroll-snap-align: center;
 }
 
+.card {
+  margin-bottom: 15px;
+  border-radius: 0.7rem;
+  box-shadow: 0px 3px 7px 0px rgba(58, 58, 58, 0.83);
+}
+
 img.cardstyle {
   max-width: 15rem;
   max-height: 15rem;
-  border-radius: 0.7rem;
-  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.83);
+  border-radius: 0.7rem 0.7rem 0rem 0rem;
+  box-shadow: 0px 0px 0px 0px rgba(58, 58, 58, 0.83);
+}
+
+.titlecocktail {
+  padding: 15px;
+  font-size: 20px;
+  font-family: 'Roboto';
+  font-weight: bold;
+  letter-spacing: 1px;
 }
 
 .rand {
