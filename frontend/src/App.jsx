@@ -80,6 +80,8 @@ function App() {
         placeholder={placeholder}
         setIsShow={setIsShow}
         isShow={isShow}
+        setIsSearchActive={setIsSearchActive}
+        setCurrentCocktail={setCurrentCocktail}
       />
       {isLoading && <p className="search-not-found">Loading cocktails...</p>}
       {!isLoading && isShow === "home" && (
