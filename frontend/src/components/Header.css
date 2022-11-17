@@ -5,22 +5,17 @@
   justify-content: space-around;
   background-color: white;
   box-shadow: 0px -10px 14px 11px rgba(0, 0, 0, 0.56);
-  min-height: 10vh;
+  position: sticky;
+  top:0;
 }
 
 .logosearchbar {
   display: flex;
-  justify-content: space-around;
   align-items: center;
 }
 
-.input-search-bar {
-  margin: 0rem;
-}
-
 .logo-header {
-  width: 15vw;
-  max-width: 13rem;
+  width: 25vw;
+  max-width: 6rem;
   margin: 0rem;
-  flex: 2;
 }
