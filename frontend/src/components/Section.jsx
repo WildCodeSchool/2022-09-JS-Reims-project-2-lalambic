@@ -60,11 +60,45 @@ function Section({
                   {cocktails
                     .filter(
                       (cocktail) =>
-                        cocktail.id === "11000" ||
-                        cocktail.id === "13971" ||
-                        cocktail.id === "13621" ||
-                        cocktail.id === "17196" ||
-                        cocktail.id === "11007"
+                        cocktail.id === "11002" ||
+                        cocktail.id === "13377" ||
+                        cocktail.id === "15184" ||
+                        cocktail.id === "12452" ||
+                        cocktail.id === "11872" ||
+                        cocktail.id === "17120" ||
+                        cocktail.id === "12452" ||
+                        cocktail.id === "14730"
+                    )
+                    .map((cocktail) => (
+                      <Card
+                        key={cocktail.id}
+                        cocktailName={cocktail.name}
+                        image={cocktail.image}
+                        handlePage={() => {
+                          setCurrentCocktail(cocktail);
+                        }}
+                      />
+                    ))}
+                </div>
+              </div>
+              <h1 className="title">HOT COCKTAIL</h1>
+              <div className="carousel-container">
+                <div className="display-main">
+                  {cocktails
+                    .filter(
+                      (cocktail) =>
+                        cocktail.id === "15182" ||
+                        cocktail.id === "11872" ||
+                        cocktail.id === "178357" ||
+                        cocktail.id === "15266" ||
+                        cocktail.id === "17209" ||
+                        cocktail.id === "17122" ||
+                        cocktail.id === "13198" ||
+                        cocktail.id === "15026" ||
+                        cocktail.id === "12738" ||
+                        cocktail.id === "178345" ||
+                        cocktail.id === "11418" ||
+                        cocktail.id === "11375"
                     )
                     .map((cocktail) => (
                       <Card
@@ -81,6 +115,7 @@ function Section({
             </section>
           )}
           <div className="display-main rand">
+            <h1>ALL COCKTAILS</h1>
             {cocktails
               .filter((cocktail) =>
                 cocktail.name.toLowerCase().includes(searchValue.toLowerCase())
