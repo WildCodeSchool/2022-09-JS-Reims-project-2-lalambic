@@ -10,7 +10,7 @@ const filters = {};
 
 function App() {
   const [userSearch, setUserSearch] = useState("");
-  const [isShow, setIsShow] = useState("");
+  const [isShow, setIsShow] = useState("home");
   const [searchValue, setSearchValue] = useState("");
   const [IsSearchActive, setIsSearchActive] = useState(false);
   const [placeholder, setPlaceholder] = useState("Search for anything...");
@@ -82,7 +82,7 @@ function App() {
         isShow={isShow}
       />
       {isLoading && <p className="search-not-found">Loading cocktails...</p>}
-      {!isLoading && isShow === "" && (
+      {!isLoading && isShow === "home" && (
         <Section
           searchValue={searchValue}
           cocktails={cocktails}
@@ -111,9 +111,6 @@ function App() {
           isShow={isShow}
           filters={filters.alcoholic}
         />
-      )}
-      {isShow === "home" && (
-        <Section searchValue={searchValue} cocktails={cocktails} />
       )}
     </div>
   );
