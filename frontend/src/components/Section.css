@@ -6,7 +6,7 @@
 .carousel-container {
   display: flex;
   overflow-x: scroll;
-  scroll-snap-type: x mandatory;
+  scroll-snap-type: both mandatory;
   -webkit-overflow-scrolling: touch;
   touch-action: auto;
 }
@@ -21,7 +21,6 @@
   align-items: center;
   gap: 1rem;
   margin: 0 1rem 2rem;
-  scroll-snap-align: center;
 }
 
 .card {
@@ -35,6 +34,7 @@ img.cardstyle {
   max-height: 15rem;
   border-radius: 0.7rem 0.7rem 0rem 0rem;
   box-shadow: 0px 0px 0px 0px rgba(58, 58, 58, 0.83);
+  scroll-snap-align: center;
 }
 
 .titlecocktail {

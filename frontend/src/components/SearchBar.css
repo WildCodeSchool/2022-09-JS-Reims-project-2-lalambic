@@ -1,6 +1,6 @@
 .input-search-bar {
   background-image: url("../assets/loupe.png");
-  background-size: 5%;
+  background-size: 1.5rem;
   background-repeat: no-repeat;
   background-position: 0.7rem center;
   display: flex;
@@ -11,5 +11,6 @@
   font-size: large;
   font-family: var(--main-font-text);
   background-color: #d3d3d3;
-  width: 70vw;
+  min-width: 60vw;
+  min-height: 4vh;
 }
