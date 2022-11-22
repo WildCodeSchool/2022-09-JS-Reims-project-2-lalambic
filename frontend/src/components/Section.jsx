@@ -10,7 +10,32 @@ function Section({
   IsSearchActive,
   currentCocktail,
   setCurrentCocktail,
+  validatedFilters,
 }) {
+  function checkFilters(cocktail, filters) {
+    let check = true;
+    if (
+      filters.category.length !== 0 &&
+      cocktail.category !== filters.category
+    ) {
+      check = false;
+    }
+    if (
+      filters.alcoholic.length !== 0 &&
+      cocktail.alcoholic !== filters.alcoholic
+    ) {
+      check = false;
+    }
+    if (
+      filters.ingredients.length !== 0 &&
+      !filters.ingredients.every((ingredient) =>
+        cocktail.ingredients.includes(ingredient)
+      )
+    ) {
+      check = false;
+    }
+    return check;
+  }
   return (
     <div className="section">
       {currentCocktail != null ? (
@@ -117,8 +142,12 @@ function Section({
           <h1 className="title">ALL COCKTAILS</h1>
           <div className="display-main rand">
             {cocktails
-              .filter((cocktail) =>
-                cocktail.name.toLowerCase().includes(searchValue.toLowerCase())
+              .filter(
+                (cocktail) =>
+                  cocktail.name
+                    .toLowerCase()
+                    .includes(searchValue.toLowerCase()) &&
+                  checkFilters(cocktail, validatedFilters)
               )
               .map((cocktail) => (
                 <Card
@@ -142,6 +171,11 @@ Section.propTypes = {
   IsSearchActive: PropTypes.bool.isRequired,
   currentCocktail: CocktailType,
   setCurrentCocktail: PropTypes.func.isRequired,
+  validatedFilters: PropTypes.shape({
+    category: PropTypes.string.isRequired,
+    ingredients: PropTypes.arrayOf(PropTypes.string.isRequired),
+    alcoholic: PropTypes.string.isRequired,
+  }).isRequired,
 };
 Section.defaultProps = {
   currentCocktail: null,
