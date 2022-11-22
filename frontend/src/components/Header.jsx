@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import Filters from "./Filters";
 import SearchBar from "./SearchBar";
 import "./Header.css";
 import "./Filters.css";
@@ -10,6 +11,9 @@ function Header({
   placeholder,
   setIsSearchActive,
   setCurrentCocktail,
+  isLoading,
+  filters,
+  setValidatedFilters,
 }) {
   return (
     <header className="header">
@@ -34,6 +38,12 @@ function Header({
           onChange={onChange}
           placeholder={placeholder}
         />
+        {!isLoading && (
+          <Filters
+            filters={filters}
+            setValidatedFilters={setValidatedFilters}
+          />
+        )}
       </div>
     </header>
   );
@@ -45,5 +55,24 @@ Header.propTypes = {
   placeholder: PropTypes.string.isRequired,
   setIsSearchActive: PropTypes.func.isRequired,
   setCurrentCocktail: PropTypes.func.isRequired,
+  isLoading: PropTypes.bool.isRequired,
+  filters: PropTypes.shape({
+    categories: PropTypes.arrayOf(
+      PropTypes.shape({
+        label: PropTypes.string.isRequired,
+      })
+    ),
+    ingredients: PropTypes.arrayOf(
+      PropTypes.shape({
+        label: PropTypes.string.isRequired,
+      })
+    ),
+    alcoholic: PropTypes.arrayOf(
+      PropTypes.shape({
+        label: PropTypes.string.isRequired,
+      })
+    ),
+  }).isRequired,
+  setValidatedFilters: PropTypes.func.isRequired,
 };
 export default Header;
