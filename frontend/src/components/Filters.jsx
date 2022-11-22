@@ -110,43 +110,44 @@ function Filters({
       </ul>
       <div>
         <form className="filter-form" onSubmit={handleSubmit}>
-          <select id="category" onChange={(e) => handleFilters(e, "category")}>
-            <option value="">select category</option>
-            {filters.categories.map((category) => (
-              <option key={category.label} value={category.label}>
-                {category.label}
-              </option>
-            ))}
-          </select>
-          <select
-            id="alcoholic"
-            onChange={(e) => handleFilters(e, "alcoholic")}
-          >
-            <option value="">select alcoholic</option>
-            {filters.alcoholic.map((type) => (
-              <option key={type.label} value={type.label}>
-                {type.label}
-              </option>
-            ))}
-          </select>
-          <select
-            id="ingredients"
-            onChange={(e) => handleFilters(e, "ingredients")}
-          >
-            <option value="">select ingredients</option>
-            {filters.ingredients
-              .sort((a, b) => {
-                if (a.label < b.label) return -1;
-                if (a.label > b.label) return 1;
-                return 0;
-              })
-              .map((ingredient) => (
+          <div className="filter-only">
+            <select
+              id="category"
+              onChange={(e) => handleFilters(e, "category")}
+            >
+              <option value="">Category</option>
+              {filters.categories.map((category) => (
+                <option key={category.label} value={category.label}>
+                  {category.label}
+                </option>
+              ))}
+            </select>
+            <select
+              id="alcoholic"
+              onChange={(e) => handleFilters(e, "alcoholic")}
+            >
+              <option value="">Alcoholic</option>
+              {filters.alcoholic.map((type) => (
+                <option key={type.label} value={type.label}>
+                  {type.label}
+                </option>
+              ))}
+            </select>
+            <select
+              id="ingredients"
+              onChange={(e) => handleFilters(e, "ingredients")}
+            >
+              <option value="">Ingredients</option>
+              {filters.ingredients.map((ingredient) => (
                 <option key={ingredient.label} value={ingredient.label}>
                   {ingredient.label}
                 </option>
               ))}
-          </select>
-          <button type="submit">Validate</button>
+            </select>
+          </div>
+          <button className="validate-button" type="submit">
+            Validate
+          </button>
         </form>
       </div>
     </>
