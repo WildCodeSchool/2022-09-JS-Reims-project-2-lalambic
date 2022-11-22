@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Section from "./components/Section";
-import Filters from "./components/Filters";
 import Header from "./components/Header";
 import "./App.css";
 import useFetch from "./data/allCocktails";
@@ -93,14 +92,6 @@ function App() {
         setValidatedFilters={setValidatedFilters}
       />
       {isLoading && <p className="search-not-found">Loading cocktails...</p>}
-      {!isLoading && (
-        <Filters
-          filters={filters}
-          setValidatedFilters={setValidatedFilters}
-          validatedFilters={validatedFilters}
-          setIsSearchActive={setIsSearchActive}
-        />
-      )}
       {!isLoading && (
         <Section
           searchValue={searchValue}
