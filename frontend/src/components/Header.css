@@ -6,12 +6,17 @@
   background-color: white;
   box-shadow: 0px -10px 14px 11px rgba(0, 0, 0, 0.56);
   position: sticky;
-  top:0;
+  top: 0;
 }
 
 .logosearchbar {
   display: flex;
   align-items: center;
+}
+
+.logo {
+  background-color: transparent;
+  box-shadow: none;
 }
 
 .logo-header {
