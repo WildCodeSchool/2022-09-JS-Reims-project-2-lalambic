@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { FiltersContextProvider } from "./FiltersContext";
 import Section from "./components/Section";
 import Header from "./components/Header";
-import "./App.css";
 import useFetch from "./data/allCocktails";
+import "./App.css";
 
 const filters = {};
 let allIngredients = [];
@@ -82,26 +83,28 @@ function App() {
 
   return (
     <div className="App">
-      <Header
-        userSearch={userSearch}
-        onSubmit={(e) => handleSubmit(e)}
-        onChange={(e) => handleChange(e)}
-        placeholder={placeholder}
-        isLoading={isLoading}
-        filters={filters}
-        setValidatedFilters={setValidatedFilters}
-      />
-      {isLoading && <p className="search-not-found">Loading cocktails...</p>}
-      {!isLoading && (
-        <Section
-          searchValue={searchValue}
-          cocktails={cocktails}
-          IsSearchActive={IsSearchActive}
-          currentCocktail={currentCocktail}
-          setCurrentCocktail={setCurrentCocktail}
-          validatedFilters={validatedFilters}
+      <FiltersContextProvider>
+        <Header
+          userSearch={userSearch}
+          onSubmit={(e) => handleSubmit(e)}
+          onChange={(e) => handleChange(e)}
+          placeholder={placeholder}
+          isLoading={isLoading}
+          filters={filters}
+          setValidatedFilters={setValidatedFilters}
         />
-      )}
+        {isLoading && <p className="search-not-found">Loading cocktails...</p>}
+        {!isLoading && (
+          <Section
+            searchValue={searchValue}
+            cocktails={cocktails}
+            IsSearchActive={IsSearchActive}
+            currentCocktail={currentCocktail}
+            setCurrentCocktail={setCurrentCocktail}
+            validatedFilters={validatedFilters}
+          />
+        )}
+      </FiltersContextProvider>
     </div>
   );
 }
