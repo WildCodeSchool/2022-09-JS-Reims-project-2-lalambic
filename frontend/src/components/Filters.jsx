@@ -1,22 +1,18 @@
 import PropTypes from "prop-types";
-import { useState } from "react";
+import { useContext } from "react";
+import FiltersContext from "../FiltersContext";
 import "./Filters.css";
 
-function Filters({
-  filters,
-  setValidatedFilters,
-  validatedFilters,
-  setIsSearchActive,
-}) {
-  const [categoryFilter, setCategoryFilter] = useState(
-    validatedFilters.category
-  );
-  const [alcoholicFilter, setAlcoholicFilter] = useState(
-    validatedFilters.alcoholic
-  );
-  const [ingredientsFilters, setIngredientsFilters] = useState(
-    validatedFilters.ingredients
-  );
+function Filters({ filters, setIsSearchActive }) {
+  const {
+    categoryFilter,
+    setCategoryFilter,
+    alcoholicFilter,
+    setAlcoholicFilter,
+    ingredientsFilters,
+    setIngredientsFilters,
+    setValidatedFilters,
+  } = useContext(FiltersContext);
 
   function handleFilters(e, filter) {
     if (filter === "category" && categoryFilter !== e.target.value) {
@@ -172,12 +168,6 @@ Filters.propTypes = {
       })
     ),
   }).isRequired,
-  validatedFilters: PropTypes.shape({
-    category: PropTypes.string.isRequired,
-    alcoholic: PropTypes.string.isRequired,
-    ingredients: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
-  }).isRequired,
-  setValidatedFilters: PropTypes.func.isRequired,
   setIsSearchActive: PropTypes.func.isRequired,
 };
 
