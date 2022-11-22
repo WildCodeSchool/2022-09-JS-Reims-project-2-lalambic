@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Section from "./components/Section";
+import Filters from "./components/Filters";
 import Header from "./components/Header";
 import "./App.css";
 import useFetch from "./data/allCocktails";
