@@ -17,3 +17,12 @@ body {
   margin: 1rem;
   font-size: 1.2rem;
 }
+.popup button{
+  display: flex;
+}
+.popup button:hover{
+  background-color: black;
+}
+.cross-icon{
+  width: 1rem;
+}

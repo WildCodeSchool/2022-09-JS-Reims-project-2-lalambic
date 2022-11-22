@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import crossIcon from "../assets/cross_icon.png";
 import FiltersContext from "../FiltersContext";
 
 function Popups() {
@@ -36,7 +37,8 @@ function Popups() {
             className="active-filter"
             onClick={() => handleClick("category")}
           >
-            {categoryFilter}
+            {categoryFilter}{" "}
+            <img className="cross-icon" src={crossIcon} alt="cross" />
           </button>
         </li>
       )}
@@ -47,7 +49,8 @@ function Popups() {
             className="active-filter"
             onClick={() => handleClick("alcoholic")}
           >
-            {alcoholicFilter}
+            {alcoholicFilter}{" "}
+            <img className="cross-icon" src={crossIcon} alt="cross" />
           </button>
         </li>
       )}
@@ -59,7 +62,8 @@ function Popups() {
             className="active-filter"
             onClick={() => handleClick("ingredients", ingredient)}
           >
-            {ingredient}
+            {ingredient}{" "}
+            <img className="cross-icon" src={crossIcon} alt="cross" />
           </button>
         </li>
       ))}
