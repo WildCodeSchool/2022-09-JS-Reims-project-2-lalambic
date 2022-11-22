@@ -129,5 +129,10 @@ ul {
 
 .instructions{
   font-weight:500;
-  margin:1.5rem 1rem 0.5rem 1rem;
+  margin:1rem 1rem 0.5rem 1rem;
+  padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+  border-radius: 0.7rem;
+  text-shadow: 1px 1px 0.1px darkgrey;
+  line-height: 1.4rem;
+  text-align: justify;
 }
