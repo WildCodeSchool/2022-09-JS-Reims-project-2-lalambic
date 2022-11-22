@@ -1,6 +1,7 @@
 .title {
   margin: 2rem 0.2rem 1.2rem 1rem;
-  font-size: 3.2vh;
+  font-size: 1.3rem;
+  color: #ff962e;
 }
 
 .carousel-container {
@@ -108,6 +109,21 @@ ul {
 }
 
 @media screen and (min-width: 768px) {
+  .title {
+    text-align: center;
+  }
+  .carousel-container::-webkit-scrollbar {
+    height: 0.4rem;
+  }
+  .carousel-container::-webkit-scrollbar-thumb {
+    background: #d3d3d3;
+    height: 0.4rem;
+  }
+
+  .carousel-container:nth-child(2) {
+    overflow: hidden;
+  }
   .display-main {
+    gap: 4.7rem;
   }
 }

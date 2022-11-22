@@ -30,7 +30,7 @@ function Section({
         <>
           {!IsSearchActive && (
             <section className="carousel">
-              <h1 className="title">OUR COCKTAILS SELECTION</h1>
+              <h1 className="title">OUR SELECTION</h1>
               <div className="carousel-container">
                 <div className="display-main">
                   {cocktails
@@ -114,26 +114,22 @@ function Section({
               </div>
             </section>
           )}
-          <h1>ALL COCKTAILS</h1>
-          <div className="carousel-container">
-            <div className="display-main rand">
-              {cocktails
-                .filter((cocktail) =>
-                  cocktail.name
-                    .toLowerCase()
-                    .includes(searchValue.toLowerCase())
-                )
-                .map((cocktail) => (
-                  <Card
-                    key={cocktail.id}
-                    cocktailName={cocktail.name}
-                    image={cocktail.image}
-                    handlePage={() => {
-                      setCurrentCocktail(cocktail);
-                    }}
-                  />
-                ))}
-            </div>
+          <h1 className="title">ALL COCKTAILS</h1>
+          <div className="display-main rand">
+            {cocktails
+              .filter((cocktail) =>
+                cocktail.name.toLowerCase().includes(searchValue.toLowerCase())
+              )
+              .map((cocktail) => (
+                <Card
+                  key={cocktail.id}
+                  cocktailName={cocktail.name}
+                  image={cocktail.image}
+                  handlePage={() => {
+                    setCurrentCocktail(cocktail);
+                  }}
+                />
+              ))}
           </div>
         </>
       )}
