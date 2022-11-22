@@ -11,15 +11,27 @@ function Header({
   setIsShow,
   isShow,
   placeholder,
+  setIsSearchActive,
+  setCurrentCocktail,
 }) {
   return (
     <header className="header">
       <div className="logosearchbar">
-        <img
-          src="../src/assets/logo-texte.png"
-          alt="logo"
-          className="logo-header"
-        />
+        <button
+          className="logo"
+          type="button"
+          onClick={() => {
+            setCurrentCocktail();
+            setIsSearchActive(false);
+            setIsShow("home");
+          }}
+        >
+          <img
+            src="../src/assets/logo-texte.png"
+            alt="logo"
+            className="logo-header"
+          />
+        </button>
         <SearchBar
           userSearch={userSearch}
           onSubmit={onSubmit}
@@ -38,5 +50,7 @@ Header.propTypes = {
   placeholder: PropTypes.string.isRequired,
   setIsShow: PropTypes.func.isRequired,
   isShow: PropTypes.string.isRequired,
+  setIsSearchActive: PropTypes.func.isRequired,
+  setCurrentCocktail: PropTypes.func.isRequired,
 };
 export default Header;
