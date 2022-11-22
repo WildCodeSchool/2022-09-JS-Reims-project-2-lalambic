@@ -2,15 +2,14 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Header from "./components/Header";
 import Section from "./components/Section";
-import FilterPage from "./components/FilterPage";
 import "./App.css";
 import useFetch from "./data/allCocktails";
 
 const filters = {};
+let allIngredients = [];
 
 function App() {
   const [userSearch, setUserSearch] = useState("");
-  const [isShow, setIsShow] = useState("home");
   const [searchValue, setSearchValue] = useState("");
   const [IsSearchActive, setIsSearchActive] = useState(false);
   const [placeholder, setPlaceholder] = useState("Search for anything...");
@@ -46,7 +45,6 @@ function App() {
   useEffect(() => {
     const urls = [
       "https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list",
-      "https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list",
       "https://www.thecocktaildb.com/api/json/v1/1/list.php?a=list",
     ];
 
@@ -58,11 +56,6 @@ function App() {
           );
         }
         if (index === 1) {
-          filters.ingredients = response.data.drinks.map(
-            ({ strIngredient1: label }) => ({ label })
-          );
-        }
-        if (index === 2) {
           filters.alcoholic = response.data.drinks.map(
             ({ strAlcoholic: label }) => ({ label })
           );
@@ -71,6 +64,17 @@ function App() {
     });
   }, []);
 
+  cocktails.forEach((cocktail) => {
+    allIngredients = allIngredients.concat(cocktail.ingredients);
+    allIngredients = allIngredients.filter(
+      (ingredient, index) => allIngredients.indexOf(ingredient) === index
+    );
+  });
+
+  filters.ingredients = allIngredients.map((ingredient) => ({
+    label: ingredient,
+  }));
+
   return (
     <div className="App">
       <Header
@@ -78,38 +82,15 @@ function App() {
         onSubmit={(e) => handleSubmit(e)}
         onChange={(e) => handleChange(e)}
         placeholder={placeholder}
-        setIsShow={setIsShow}
-        isShow={isShow}
       />
       {isLoading && <p className="search-not-found">Loading cocktails...</p>}
-      {!isLoading && isShow === "home" && (
+      {!isLoading && (
         <Section
           searchValue={searchValue}
           cocktails={cocktails}
           IsSearchActive={IsSearchActive}
           currentCocktail={currentCocktail}
           setCurrentCocktail={setCurrentCocktail}
-        />
-      )}
-      {isShow === "name" && (
-        <FilterPage
-          setIsShow={setIsShow}
-          isShow={isShow}
-          filters={filters.categories}
-        />
-      )}
-      {isShow === "Ingredients" && (
-        <FilterPage
-          setIsShow={setIsShow}
-          isShow={isShow}
-          filters={filters.ingredients}
-        />
-      )}
-      {isShow === "Alcoholic" && (
-        <FilterPage
-          setIsShow={setIsShow}
-          isShow={isShow}
-          filters={filters.alcoholic}
         />
       )}
     </div>
