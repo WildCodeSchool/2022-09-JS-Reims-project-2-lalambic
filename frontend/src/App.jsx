@@ -15,11 +15,11 @@ function App() {
   const [IsSearchActive, setIsSearchActive] = useState(false);
   const [placeholder, setPlaceholder] = useState("Search for anything...");
   const [currentCocktail, setCurrentCocktail] = useState();
-  /*  const [validatedFilters, setValidatedFilters] = useState({
+  const [validatedFilters, setValidatedFilters] = useState({
     category: "",
     alcoholic: "",
     ingredients: [],
-  }); */
+  });
 
   const { cocktails, isLoading } = useFetch();
 
@@ -91,9 +91,7 @@ function App() {
       />
       {isLoading && <p className="search-not-found">Loading cocktails...</p>}
       {!isLoading && (
-        <Filters
-          filters={filters} /* setValidatedFilters={setValidatedFilters} */
-        />
+        <Filters filters={filters} setValidatedFilters={setValidatedFilters} />
       )}
       {!isLoading && (
         <Section
@@ -102,6 +100,7 @@ function App() {
           IsSearchActive={IsSearchActive}
           currentCocktail={currentCocktail}
           setCurrentCocktail={setCurrentCocktail}
+          validatedFilters={validatedFilters}
         />
       )}
     </div>

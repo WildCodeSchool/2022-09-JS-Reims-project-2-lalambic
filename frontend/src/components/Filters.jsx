@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import { useState } from "react";
 import "./Filters.css";
 
-function Filters({ filters /* setValidatedFilters */ }) {
+function Filters({ filters, setValidatedFilters }) {
   const [categoryFilter, setCategoryFilter] = useState("");
   const [alcoholicFilter, setAlcoholicFilter] = useState("");
   const [ingredientsFilters, setIngredientsFilters] = useState([]);
@@ -41,6 +41,15 @@ function Filters({ filters /* setValidatedFilters */ }) {
     }
   }
 
+  function handleSubmit(e) {
+    e.preventDefault();
+    setValidatedFilters({
+      category: categoryFilter,
+      alcoholic: alcoholicFilter,
+      ingredients: ingredientsFilters,
+    });
+  }
+
   return (
     <>
       <ul className="active-filters">
@@ -67,7 +76,7 @@ function Filters({ filters /* setValidatedFilters */ }) {
           </li>
         )}
         {ingredientsFilters.map((ingredient) => (
-          <li>
+          <li key={ingredient}>
             <button
               type="button"
               key={ingredient}
@@ -80,7 +89,7 @@ function Filters({ filters /* setValidatedFilters */ }) {
         ))}
       </ul>
       <div>
-        <form className="filter-form">
+        <form className="filter-form" onSubmit={handleSubmit}>
           <select id="category" onChange={(e) => handleFilters(e, "category")}>
             <option value="">select category</option>
             {filters.categories.map((category) => (
@@ -136,7 +145,7 @@ Filters.propTypes = {
       })
     ),
   }).isRequired,
-  /*   setValidatedFilters: PropTypes.func.isRequired, */
+  setValidatedFilters: PropTypes.func.isRequired,
 };
 
 export default Filters;
