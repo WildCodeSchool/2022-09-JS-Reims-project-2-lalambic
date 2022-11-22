@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import { useState } from "react";
 import Filters from "./Filters";
 import SearchBar from "./SearchBar";
 import "./Header.css";
@@ -14,6 +15,7 @@ function Header({
   isLoading,
   filters,
 }) {
+  const [displayFilters, setDisplayFilters] = useState(false);
   return (
     <header className="header">
       <div className="logosearchbar">
@@ -37,7 +39,13 @@ function Header({
           onChange={onChange}
           placeholder={placeholder}
         />
-        {!isLoading && (
+        <button
+          type="button"
+          onClick={() => setDisplayFilters(!displayFilters)}
+        >
+          {displayFilters ? "Hide filters" : "Display filters"}
+        </button>
+        {!isLoading && displayFilters && (
           <Filters filters={filters} setIsSearchActive={setIsSearchActive} />
         )}
       </div>
