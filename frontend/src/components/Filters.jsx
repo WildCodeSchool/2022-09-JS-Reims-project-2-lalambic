@@ -31,23 +31,6 @@ function Filters({ filters, setIsSearchActive }) {
     }
   }
 
-  function handleClick(filter, oldIngredient) {
-    if (filter === "category") {
-      setCategoryFilter("");
-    }
-    if (filter === "alcoholic") {
-      setAlcoholicFilter("");
-    }
-    if (filter === "ingredients") {
-      const ingredientsFiltersCopy = [...ingredientsFilters];
-      setIngredientsFilters(
-        ingredientsFiltersCopy.filter(
-          (ingredient) => ingredient !== oldIngredient
-        )
-      );
-    }
-  }
-
   function handleSubmit(e) {
     e.preventDefault();
     setValidatedFilters({
@@ -67,86 +50,45 @@ function Filters({ filters, setIsSearchActive }) {
   }
 
   return (
-    <>
-      <ul className="active-filters">
-        {categoryFilter.length !== 0 && (
-          <li>
-            <button
-              type="button"
-              className="active-filter"
-              onClick={() => handleClick("category")}
-            >
-              {categoryFilter}
-            </button>
-          </li>
-        )}
-        {alcoholicFilter.length !== 0 && (
-          <li>
-            <button
-              type="button"
-              className="active-filter"
-              onClick={() => handleClick("alcoholic")}
-            >
-              {alcoholicFilter}
-            </button>
-          </li>
-        )}
-        {ingredientsFilters.map((ingredient) => (
-          <li key={ingredient}>
-            <button
-              type="button"
-              key={ingredient}
-              className="active-filter"
-              onClick={() => handleClick("ingredients", ingredient)}
-            >
-              {ingredient}
-            </button>
-          </li>
-        ))}
-      </ul>
-      <div>
-        <form className="filter-form" onSubmit={handleSubmit}>
-          <div className="filter-only">
-            <select
-              id="category"
-              onChange={(e) => handleFilters(e, "category")}
-            >
-              <option value="">Category</option>
-              {filters.categories.map((category) => (
-                <option key={category.label} value={category.label}>
-                  {category.label}
-                </option>
-              ))}
-            </select>
-            <select
-              id="alcoholic"
-              onChange={(e) => handleFilters(e, "alcoholic")}
-            >
-              <option value="">Alcoholic</option>
-              {filters.alcoholic.map((type) => (
-                <option key={type.label} value={type.label}>
-                  {type.label}
-                </option>
-              ))}
-            </select>
-            <select
-              id="ingredients"
-              onChange={(e) => handleFilters(e, "ingredients")}
-            >
-              <option value="">Ingredients</option>
-              {filters.ingredients.map((ingredient) => (
-                <option key={ingredient.label} value={ingredient.label}>
-                  {ingredient.label}
-                </option>
-              ))}
-            </select>
-          </div>
-          <button className="validate-button" type="submit">
-            Validate
-          </button>
-        </form>
-      </div>
-    </>
+    <div>
+      <form className="filter-form" onSubmit={handleSubmit}>
+        <div className="filter-only">
+          <select id="category" onChange={(e) => handleFilters(e, "category")}>
+            <option value="">Category</option>
+            {filters.categories.map((category) => (
+              <option key={category.label} value={category.label}>
+                {category.label}
+              </option>
+            ))}
+          </select>
+          <select
+            id="alcoholic"
+            onChange={(e) => handleFilters(e, "alcoholic")}
+          >
+            <option value="">Alcoholic</option>
+            {filters.alcoholic.map((type) => (
+              <option key={type.label} value={type.label}>
+                {type.label}
+              </option>
+            ))}
+          </select>
+          <select
+            id="ingredients"
+            onChange={(e) => handleFilters(e, "ingredients")}
+          >
+            <option value="">Ingredients</option>
+            {filters.ingredients.map((ingredient) => (
+              <option key={ingredient.label} value={ingredient.label}>
+                {ingredient.label}
+              </option>
+            ))}
+          </select>
+        </div>
+        <button className="validate-button" type="submit">
+          Validate
+        </button>
+      </form>
+    </div>
   );
 }
 
