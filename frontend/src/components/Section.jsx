@@ -10,32 +10,7 @@ function Section({
   IsSearchActive,
   currentCocktail,
   setCurrentCocktail,
-  validatedFilters,
 }) {
-  function checkFilters(cocktail, filters) {
-    let check = true;
-    if (
-      filters.category.length !== 0 &&
-      cocktail.category !== filters.category
-    ) {
-      check = false;
-    }
-    if (
-      filters.alcoholic.length !== 0 &&
-      cocktail.alcoholic !== filters.alcoholic
-    ) {
-      check = false;
-    }
-    if (
-      filters.ingredients.length !== 0 &&
-      !filters.ingredients.every((ingredient) =>
-        cocktail.ingredients.includes(ingredient)
-      )
-    ) {
-      check = false;
-    }
-    return check;
-  }
   return (
     <div className="section">
       {currentCocktail != null ? (
@@ -55,7 +30,7 @@ function Section({
         <>
           {!IsSearchActive && (
             <section className="carousel">
-              <h1 className="title">OUR SELECTION</h1>
+              <h1 className="title">OUR COCKTAILS SELECTION</h1>
               <div className="carousel-container">
                 <div className="display-main">
                   {cocktails
@@ -79,7 +54,7 @@ function Section({
                     ))}
                 </div>
               </div>
-              <h1 className="title">VODKA COCKTAILS</h1>
+              <h1 className="title">COCKTAIL VODKA</h1>
               <div className="carousel-container">
                 <div className="display-main">
                   {cocktails
@@ -106,7 +81,7 @@ function Section({
                     ))}
                 </div>
               </div>
-              <h1 className="title">HOT COCKTAILS</h1>
+              <h1 className="title">HOT COCKTAIL</h1>
               <div className="carousel-container">
                 <div className="display-main">
                   {cocktails
@@ -139,15 +114,11 @@ function Section({
               </div>
             </section>
           )}
-          <h1 className="title">ALL COCKTAILS</h1>
           <div className="display-main rand">
+            <h1 className="title">ALL COCKTAILS</h1>
             {cocktails
-              .filter(
-                (cocktail) =>
-                  cocktail.name
-                    .toLowerCase()
-                    .includes(searchValue.toLowerCase()) &&
-                  checkFilters(cocktail, validatedFilters)
+              .filter((cocktail) =>
+                cocktail.name.toLowerCase().includes(searchValue.toLowerCase())
               )
               .map((cocktail) => (
                 <Card
@@ -171,11 +142,6 @@ Section.propTypes = {
   IsSearchActive: PropTypes.bool.isRequired,
   currentCocktail: CocktailType,
   setCurrentCocktail: PropTypes.func.isRequired,
-  validatedFilters: PropTypes.shape({
-    category: PropTypes.string.isRequired,
-    ingredients: PropTypes.arrayOf(PropTypes.string.isRequired),
-    alcoholic: PropTypes.string.isRequired,
-  }).isRequired,
 };
 Section.defaultProps = {
   currentCocktail: null,
