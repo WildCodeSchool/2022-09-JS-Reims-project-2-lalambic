@@ -41,12 +41,12 @@ const useFetch = () => {
                   (key) =>
                     key.includes("strIngredient") && cocktail[key] != null
                 )
-                .map((key) => cocktail[key]),
+                .map((key) => cocktail[key].toLowerCase()),
               measures: Object.keys(cocktail)
                 .filter(
                   (key) => key.includes("strMeasure") && cocktail[key] != null
                 )
-                .map((key) => cocktail[key]),
+                .map((key) => cocktail[key].toLowerCase()),
             })
           );
 
