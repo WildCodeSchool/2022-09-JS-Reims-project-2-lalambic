@@ -20,7 +20,6 @@ function Header({
           onClick={() => {
             setCurrentCocktail();
             setIsSearchActive(false);
-            setIsShow("home");
           }}
         >
           <img
