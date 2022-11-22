@@ -1,7 +1,9 @@
 import PropTypes from "prop-types";
+import { useContext } from "react";
 import Card from "./Card";
 import CocktailPage from "./CocktailPage";
 import CocktailType from "../prop-types/CocktailType";
+import FiltersContext from "../FiltersContext";
 import "./Section.css";
 
 function Section({
@@ -10,8 +12,9 @@ function Section({
   IsSearchActive,
   currentCocktail,
   setCurrentCocktail,
-  validatedFilters,
 }) {
+  const { validatedFilters } = useContext(FiltersContext);
+
   function checkFilters(cocktail, filters) {
     let check = true;
     if (
@@ -171,11 +174,6 @@ Section.propTypes = {
   IsSearchActive: PropTypes.bool.isRequired,
   currentCocktail: CocktailType,
   setCurrentCocktail: PropTypes.func.isRequired,
-  validatedFilters: PropTypes.shape({
-    category: PropTypes.string.isRequired,
-    ingredients: PropTypes.arrayOf(PropTypes.string.isRequired),
-    alcoholic: PropTypes.string.isRequired,
-  }).isRequired,
 };
 Section.defaultProps = {
   currentCocktail: null,
