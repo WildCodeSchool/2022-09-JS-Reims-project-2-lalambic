@@ -20,7 +20,7 @@
   text-align: center;
   align-items: center;
   gap: 1rem;
-  margin: 0 1rem 2rem;
+  margin: 0 1rem 1rem;
 }
 
 .card {
@@ -57,10 +57,10 @@ img.cardstyle {
 .cross {
   background: none;
   border: none;
-  box-shadow:none;
+  box-shadow: none;
   width: 1rem;
   position: sticky;
-  top:22%;
+  top: 22%;
   transform: translateY(-50%);
 }
 
@@ -98,11 +98,16 @@ ul {
   margin-left: 2rem;
 }
 
-.list{
+.list {
   font-weight: bolder;
 }
 
-.instructions{
-  font-weight:500;
-  margin:1.5rem 1rem 0.5rem 1rem;
+.instructions {
+  font-weight: 500;
+  margin: 1.5rem 1rem 0.5rem 1rem;
+}
+
+@media screen and (min-width: 768px) {
+  .display-main {
+  }
 }

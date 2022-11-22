@@ -54,7 +54,7 @@ function Section({
                     ))}
                 </div>
               </div>
-              <h1 className="title">COCKTAIL VODKA</h1>
+              <h1 className="title">VODKA COCKTAILS</h1>
               <div className="carousel-container">
                 <div className="display-main">
                   {cocktails
@@ -81,7 +81,7 @@ function Section({
                     ))}
                 </div>
               </div>
-              <h1 className="title">HOT COCKTAIL</h1>
+              <h1 className="title">HOT COCKTAILS</h1>
               <div className="carousel-container">
                 <div className="display-main">
                   {cocktails
@@ -114,22 +114,26 @@ function Section({
               </div>
             </section>
           )}
-          <div className="display-main rand">
-            <h1>ALL COCKTAILS</h1>
-            {cocktails
-              .filter((cocktail) =>
-                cocktail.name.toLowerCase().includes(searchValue.toLowerCase())
-              )
-              .map((cocktail) => (
-                <Card
-                  key={cocktail.id}
-                  cocktailName={cocktail.name}
-                  image={cocktail.image}
-                  handlePage={() => {
-                    setCurrentCocktail(cocktail);
-                  }}
-                />
-              ))}
+          <h1>ALL COCKTAILS</h1>
+          <div className="carousel-container">
+            <div className="display-main rand">
+              {cocktails
+                .filter((cocktail) =>
+                  cocktail.name
+                    .toLowerCase()
+                    .includes(searchValue.toLowerCase())
+                )
+                .map((cocktail) => (
+                  <Card
+                    key={cocktail.id}
+                    cocktailName={cocktail.name}
+                    image={cocktail.image}
+                    handlePage={() => {
+                      setCurrentCocktail(cocktail);
+                    }}
+                  />
+                ))}
+            </div>
           </div>
         </>
       )}
