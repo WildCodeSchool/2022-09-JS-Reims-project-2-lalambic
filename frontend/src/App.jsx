@@ -94,6 +94,7 @@ function App() {
         <Filters
           filters={filters}
           setValidatedFilters={setValidatedFilters}
+          validatedFilters={validatedFilters}
           setIsSearchActive={setIsSearchActive}
         />
       )}
