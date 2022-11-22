@@ -32,8 +32,9 @@ export function FiltersContextProvider({ children }) {
       validatedFilters,
       setValidatedFilters,
     }),
-    []
+    [categoryFilter, alcoholicFilter, ingredientsFilters, validatedFilters]
   );
+
   return (
     <FiltersContext.Provider value={filtersContext}>
       {children}

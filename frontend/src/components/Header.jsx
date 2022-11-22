@@ -13,7 +13,6 @@ function Header({
   setCurrentCocktail,
   isLoading,
   filters,
-  setValidatedFilters,
 }) {
   return (
     <header className="header">
@@ -39,10 +38,7 @@ function Header({
           placeholder={placeholder}
         />
         {!isLoading && (
-          <Filters
-            filters={filters}
-            setValidatedFilters={setValidatedFilters}
-          />
+          <Filters filters={filters} setIsSearchActive={setIsSearchActive} />
         )}
       </div>
     </header>
@@ -54,8 +50,8 @@ Header.propTypes = {
   onChange: PropTypes.func.isRequired,
   placeholder: PropTypes.string.isRequired,
   setIsSearchActive: PropTypes.func.isRequired,
-  setCurrentCocktail: PropTypes.func.isRequired,
   isLoading: PropTypes.bool.isRequired,
+  setCurrentCocktail: PropTypes.func.isRequired,
   filters: PropTypes.shape({
     categories: PropTypes.arrayOf(
       PropTypes.shape({
@@ -73,6 +69,5 @@ Header.propTypes = {
       })
     ),
   }).isRequired,
-  setValidatedFilters: PropTypes.func.isRequired,
 };
 export default Header;

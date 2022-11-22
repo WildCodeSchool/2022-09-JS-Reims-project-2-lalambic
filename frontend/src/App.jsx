@@ -3,6 +3,7 @@ import axios from "axios";
 import { FiltersContextProvider } from "./FiltersContext";
 import Section from "./components/Section";
 import Header from "./components/Header";
+import Popups from "./components/Popups";
 import useFetch from "./data/allCocktails";
 import "./App.css";
 
@@ -15,11 +16,6 @@ function App() {
   const [IsSearchActive, setIsSearchActive] = useState(false);
   const [placeholder, setPlaceholder] = useState("Search for anything...");
   const [currentCocktail, setCurrentCocktail] = useState();
-  const [validatedFilters, setValidatedFilters] = useState({
-    category: "",
-    alcoholic: "",
-    ingredients: [],
-  });
 
   const { cocktails, isLoading } = useFetch();
 
@@ -91,9 +87,11 @@ function App() {
           placeholder={placeholder}
           isLoading={isLoading}
           filters={filters}
-          setValidatedFilters={setValidatedFilters}
+          setCurrentCocktail={setCurrentCocktail}
+          setIsSearchActive={setIsSearchActive}
         />
         {isLoading && <p className="search-not-found">Loading cocktails...</p>}
+        {!currentCocktail && <Popups />}
         {!isLoading && (
           <Section
             searchValue={searchValue}
@@ -101,7 +99,6 @@ function App() {
             IsSearchActive={IsSearchActive}
             currentCocktail={currentCocktail}
             setCurrentCocktail={setCurrentCocktail}
-            validatedFilters={validatedFilters}
           />
         )}
       </FiltersContextProvider>
