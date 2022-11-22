@@ -140,7 +140,7 @@ function Section({
             </section>
           )}
           <div className="display-main rand">
-            <h1>ALL COCKTAILS</h1>
+            {!IsSearchActive && <h1>ALL COCKTAILS</h1>}
             {cocktails
               .filter(
                 (cocktail) =>

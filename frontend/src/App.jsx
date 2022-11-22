@@ -91,7 +91,11 @@ function App() {
       />
       {isLoading && <p className="search-not-found">Loading cocktails...</p>}
       {!isLoading && (
-        <Filters filters={filters} setValidatedFilters={setValidatedFilters} />
+        <Filters
+          filters={filters}
+          setValidatedFilters={setValidatedFilters}
+          setIsSearchActive={setIsSearchActive}
+        />
       )}
       {!isLoading && (
         <Section
