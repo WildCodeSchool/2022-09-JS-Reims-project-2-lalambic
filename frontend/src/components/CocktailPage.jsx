@@ -9,7 +9,7 @@ function CocktailPage({
   handlePage,
 }) {
   return (
-    <div>
+    <div className="cocktailpage">
       <button className="cross" type="button" onClick={handlePage}>
         <img src="../src/assets/close.png" alt="cross" />
       </button>
@@ -19,7 +19,9 @@ function CocktailPage({
         <div className="list">
           <ul className="ingredients">
             {ingredients.map((ingredient) => (
-              <li key={ingredient}>{ingredient}</li>
+              <li className="ingredients" key={ingredient}>
+                {ingredient}
+              </li>
             ))}
           </ul>
           <ul className="measurements">
