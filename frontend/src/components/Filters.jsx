@@ -87,10 +87,7 @@ function Filters({ filters, setIsSearchActive }) {
                 return 0;
               })
               .map((ingredient) => (
-                <option
-                  key={ingredient.label}
-                  value={FirstLetterUppercase(ingredient.label)}
-                >
+                <option key={ingredient.label} value={ingredient.label}>
                   {FirstLetterUppercase(ingredient.label)}
                 </option>
               ))}
