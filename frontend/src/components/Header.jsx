@@ -41,14 +41,15 @@ function Header({
         />
         <button
           type="button"
+          className="button-fly"
           onClick={() => setDisplayFilters(!displayFilters)}
         >
           {displayFilters ? "Hide filters" : "Display filters"}
         </button>
-        {!isLoading && displayFilters && (
-          <Filters filters={filters} setIsSearchActive={setIsSearchActive} />
-        )}
       </div>
+      {!isLoading && displayFilters && (
+        <Filters filters={filters} setIsSearchActive={setIsSearchActive} />
+      )}
     </header>
   );
 }

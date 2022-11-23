@@ -20,10 +20,6 @@ body {
 .popup button{
   display: flex;
 }
-button:hover{
-  background-color: black;
-  box-shadow: 3px 3px 2px #696868 inset;
-}
 .cross-icon{
   width: 1rem;
 }
