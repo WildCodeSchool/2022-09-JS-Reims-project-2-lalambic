@@ -14,9 +14,8 @@ button {
 .active-filters{
   display: flex;
   flex-wrap:wrap;
-  margin:1rem;
+  margin:0 1rem 1rem;
   gap:1rem;
-
 }
 
 .filter-only{
@@ -32,4 +31,22 @@ select{
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.button-fly:hover{
+  background-color: #D3D3D3;
+  color:#090909;
+}
+
+.validate-button:hover{
+  background-color: #D3D3D3;
+  color:#090909;
+}
+
+@media screen and (min-width: 768px) {
+  .filter-form{
+    flex-direction: row;
+    margin-bottom: 0;
+  }
 }
