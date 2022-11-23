@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import Filters from "./Filters";
 import SearchBar from "./SearchBar";
 import "./Header.css";
@@ -16,7 +16,6 @@ function Header({
   isLoading,
   filters,
 }) {
-  const [displayFilters, setDisplayFilters] = useState(false);
   const {
     setCategoryFilter,
     setAlcoholicFilter,
@@ -54,15 +53,8 @@ function Header({
           onChange={onChange}
           placeholder={placeholder}
         />
-        <button
-          type="button"
-          className="button-fly"
-          onClick={() => setDisplayFilters(!displayFilters)}
-        >
-          {displayFilters ? "Hide filters" : "Display filters"}
-        </button>
       </div>
-      {!isLoading && displayFilters && (
+      {!isLoading && (
         <Filters filters={filters} setIsSearchActive={setIsSearchActive} />
       )}
     </header>
