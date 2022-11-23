@@ -6,6 +6,10 @@
   background-color: #d3d3d3;
 }
 
+.search-bar:hover {
+  background-color: #ebebeb;
+}
+
 .search-bar [type="submit"] {
   width: 2.5rem;
   height: 2.5rem;
@@ -25,4 +29,6 @@
   font-size: large;
   font-family: var(--main-font-text);
   background-color: inherit;
+  border: none;
+  outline: none;
 }
