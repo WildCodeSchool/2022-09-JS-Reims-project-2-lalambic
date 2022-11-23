@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { useContext } from "react";
+import { useContext /* useState */ } from "react";
 import Card from "./Card";
 import CocktailPage from "./CocktailPage";
 import CocktailType from "../prop-types/CocktailType";
@@ -14,6 +14,7 @@ function Section({
   setCurrentCocktail,
 }) {
   const { validatedFilters } = useContext(FiltersContext);
+  /* const [cocktailsFound, setCoktailsFound] = useState(true); */
 
   function checkFilters(cocktail, filters) {
     let check = true;
@@ -39,6 +40,13 @@ function Section({
     }
     return check;
   }
+
+  const result = cocktails.filter(
+    (cocktail) =>
+      cocktail.name.toLowerCase().includes(searchValue.toLowerCase()) &&
+      checkFilters(cocktail, validatedFilters)
+  );
+
   return (
     <div className="section">
       {currentCocktail != null ? (
@@ -143,25 +151,18 @@ function Section({
             </section>
           )}
           {!IsSearchActive && <h1 className="title">ALL COCKTAILS</h1>}
+          {result.length === 0 && <p>No matching result</p>}
           <div className="display-main rand">
-            {cocktails
-              .filter(
-                (cocktail) =>
-                  cocktail.name
-                    .toLowerCase()
-                    .includes(searchValue.toLowerCase()) &&
-                  checkFilters(cocktail, validatedFilters)
-              )
-              .map((cocktail) => (
-                <Card
-                  key={cocktail.id}
-                  cocktailName={cocktail.name}
-                  image={cocktail.image}
-                  handlePage={() => {
-                    setCurrentCocktail(cocktail);
-                  }}
-                />
-              ))}
+            {result.map((cocktail) => (
+              <Card
+                key={cocktail.id}
+                cocktailName={cocktail.name}
+                image={cocktail.image}
+                handlePage={() => {
+                  setCurrentCocktail(cocktail);
+                }}
+              />
+            ))}
           </div>
         </>
       )}
