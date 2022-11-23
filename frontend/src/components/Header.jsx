@@ -1,9 +1,10 @@
 import PropTypes from "prop-types";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Filters from "./Filters";
 import SearchBar from "./SearchBar";
 import "./Header.css";
 import "./Filters.css";
+import FiltersContext from "../FiltersContext";
 
 function Header({
   userSearch,
@@ -16,6 +17,12 @@ function Header({
   filters,
 }) {
   const [displayFilters, setDisplayFilters] = useState(false);
+  const {
+    setCategoryFilter,
+    setAlcoholicFilter,
+    setIngredientsFilters,
+    setValidatedFilters,
+  } = useContext(FiltersContext);
   return (
     <header className="header">
       <div className="logosearchbar">
@@ -25,6 +32,14 @@ function Header({
           onClick={() => {
             setCurrentCocktail();
             setIsSearchActive(false);
+            setCategoryFilter("");
+            setAlcoholicFilter("");
+            setIngredientsFilters([]);
+            setValidatedFilters({
+              category: "",
+              alcoholic: "",
+              ingredients: [],
+            });
           }}
         >
           <img

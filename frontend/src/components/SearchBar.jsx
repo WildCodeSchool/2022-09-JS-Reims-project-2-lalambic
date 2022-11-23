@@ -50,7 +50,6 @@ function SearchBar({ userSearch, onSubmit, onChange, placeholder }) {
       <datalist id="suggestions">
         {cocktails
           .filter((cocktail) => checkFilters(cocktail, validatedFilters))
-          .slice(0, 10)
           .map((cocktail) => (
             <option
               key={cocktail.id}
