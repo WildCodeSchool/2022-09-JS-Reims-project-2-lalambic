@@ -27,7 +27,6 @@
 .display-main.rand {
   display: flex;
   flex-direction: column;
-  max-width: 690px;
 }
 
 .card {
@@ -105,11 +104,18 @@ ul {
 
 .list {
   display: flex;
+  flex-direction: column;
   justify-content: space-evenly;
-  align-items: flex-start;
+  align-items: center;
   column-gap: 20vw;
   border-radius: 0.7rem;
   padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+}
+.container {
+  display: flex;
+  background-color: #ff962e;
+  border-radius: 0.7rem;
+  padding: 1rem 1rem 1rem 1rem;
 }
 
 .cocktail-name {
