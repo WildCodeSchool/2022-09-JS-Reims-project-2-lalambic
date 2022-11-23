@@ -32,3 +32,8 @@
   border: none;
   outline: none;
 }
+
+.zoom{
+  border-radius: 20px;
+  box-shadow:none;
+}
