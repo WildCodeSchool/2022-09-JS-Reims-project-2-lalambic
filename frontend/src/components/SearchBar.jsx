@@ -36,7 +36,7 @@ function SearchBar({ userSearch, onSubmit, onChange, placeholder }) {
 
   return (
     <form className="search-bar" onSubmit={onSubmit}>
-      <button type="submit">
+      <button className="zoom" type="submit">
         <img src={loupe} alt="search" />
       </button>
       <input
