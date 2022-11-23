@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import { useState } from "react";
 import Filters from "./Filters";
 import SearchBar from "./SearchBar";
 import "./Header.css";
@@ -13,8 +14,8 @@ function Header({
   setCurrentCocktail,
   isLoading,
   filters,
-  setValidatedFilters,
 }) {
+  const [displayFilters, setDisplayFilters] = useState(false);
   return (
     <header className="header">
       <div className="logosearchbar">
@@ -38,11 +39,14 @@ function Header({
           onChange={onChange}
           placeholder={placeholder}
         />
-        {!isLoading && (
-          <Filters
-            filters={filters}
-            setValidatedFilters={setValidatedFilters}
-          />
+        <button
+          type="button"
+          onClick={() => setDisplayFilters(!displayFilters)}
+        >
+          {displayFilters ? "Hide filters" : "Display filters"}
+        </button>
+        {!isLoading && displayFilters && (
+          <Filters filters={filters} setIsSearchActive={setIsSearchActive} />
         )}
       </div>
     </header>
@@ -54,8 +58,8 @@ Header.propTypes = {
   onChange: PropTypes.func.isRequired,
   placeholder: PropTypes.string.isRequired,
   setIsSearchActive: PropTypes.func.isRequired,
-  setCurrentCocktail: PropTypes.func.isRequired,
   isLoading: PropTypes.bool.isRequired,
+  setCurrentCocktail: PropTypes.func.isRequired,
   filters: PropTypes.shape({
     categories: PropTypes.arrayOf(
       PropTypes.shape({
@@ -73,6 +77,5 @@ Header.propTypes = {
       })
     ),
   }).isRequired,
-  setValidatedFilters: PropTypes.func.isRequired,
 };
 export default Header;

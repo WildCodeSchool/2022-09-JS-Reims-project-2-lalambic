@@ -1,7 +1,9 @@
 import PropTypes from "prop-types";
+import { useContext /* useState */ } from "react";
 import Card from "./Card";
 import CocktailPage from "./CocktailPage";
 import CocktailType from "../prop-types/CocktailType";
+import FiltersContext from "../FiltersContext";
 import "./Section.css";
 
 function Section({
@@ -11,6 +13,40 @@ function Section({
   currentCocktail,
   setCurrentCocktail,
 }) {
+  const { validatedFilters } = useContext(FiltersContext);
+  /* const [cocktailsFound, setCoktailsFound] = useState(true); */
+
+  function checkFilters(cocktail, filters) {
+    let check = true;
+    if (
+      filters.category.length !== 0 &&
+      cocktail.category !== filters.category
+    ) {
+      check = false;
+    }
+    if (
+      filters.alcoholic.length !== 0 &&
+      cocktail.alcoholic !== filters.alcoholic
+    ) {
+      check = false;
+    }
+    if (
+      filters.ingredients.length !== 0 &&
+      !filters.ingredients.every((ingredient) =>
+        cocktail.ingredients.includes(ingredient)
+      )
+    ) {
+      check = false;
+    }
+    return check;
+  }
+
+  const result = cocktails.filter(
+    (cocktail) =>
+      cocktail.name.toLowerCase().includes(searchValue.toLowerCase()) &&
+      checkFilters(cocktail, validatedFilters)
+  );
+
   return (
     <div className="section">
       {currentCocktail != null ? (
@@ -114,22 +150,19 @@ function Section({
               </div>
             </section>
           )}
+          {!IsSearchActive && <h1 className="title">ALL COCKTAILS</h1>}
+          {result.length === 0 && <p>No matching result</p>}
           <div className="display-main rand">
-            <h1 className="title">ALL COCKTAILS</h1>
-            {cocktails
-              .filter((cocktail) =>
-                cocktail.name.toLowerCase().includes(searchValue.toLowerCase())
-              )
-              .map((cocktail) => (
-                <Card
-                  key={cocktail.id}
-                  cocktailName={cocktail.name}
-                  image={cocktail.image}
-                  handlePage={() => {
-                    setCurrentCocktail(cocktail);
-                  }}
-                />
-              ))}
+            {result.map((cocktail) => (
+              <Card
+                key={cocktail.id}
+                cocktailName={cocktail.name}
+                image={cocktail.image}
+                handlePage={() => {
+                  setCurrentCocktail(cocktail);
+                }}
+              />
+            ))}
           </div>
         </>
       )}
