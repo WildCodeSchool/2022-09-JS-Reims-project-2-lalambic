@@ -10,6 +10,7 @@
   scroll-snap-type: both mandatory;
   -webkit-overflow-scrolling: touch;
   touch-action: auto;
+  margin-left:1rem;
 }
 
 .display-main {
@@ -64,7 +65,7 @@ img.cardstyle {
   box-shadow: none;
   width: 1rem;
   position: sticky;
-  top: 22%;
+  top: 28%;
   transform: translateY(-50%);
 }
 
@@ -144,10 +145,16 @@ ul {
   justify-content: center;
 }
 
+
 @media screen and (min-width: 768px) {
   .title {
     text-align: center;
   }
+
+  .cross{
+    top: 35%;
+  }
+
   .carousel-container::-webkit-scrollbar {
     height: 0.4rem;
   }
