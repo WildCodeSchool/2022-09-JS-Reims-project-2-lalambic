@@ -21,6 +21,7 @@ button{
 .filter-only{
   display: flex;
   margin: 0.9rem;
+  gap: 0.5rem;
 }
 
 select{
@@ -43,5 +44,8 @@ select{
   .filter-form{
     flex-direction: row;
     margin-bottom: 0;
+  }
+  .filter-only{
+    gap: 1rem;
   }
 }
