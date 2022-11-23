@@ -17,6 +17,7 @@
   font-family: "Roboto", sans-serif;
   color: #090909;
   display: flex;
+  width: 100vw;
   justify-content: space-around;
   text-align: center;
   align-items: center;
