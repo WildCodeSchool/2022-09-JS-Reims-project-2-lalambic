@@ -49,6 +49,9 @@ function Filters({ filters, setIsSearchActive }) {
     }
   }
 
+  function FirstLetterUppercase(word) {
+    return word[0].toUpperCase() + word.slice(1);
+  }
   return (
     <div>
       <form className="filter-form" onSubmit={handleSubmit}>
@@ -77,11 +80,17 @@ function Filters({ filters, setIsSearchActive }) {
             onChange={(e) => handleFilters(e, "ingredients")}
           >
             <option value="">Ingredients</option>
-            {filters.ingredients.map((ingredient) => (
-              <option key={ingredient.label} value={ingredient.label}>
-                {ingredient.label}
-              </option>
-            ))}
+            {filters.ingredients
+              .sort((a, b) => {
+                if (a.label < b.label) return -1;
+                if (a.label > b.label) return 1;
+                return 0;
+              })
+              .map((ingredient) => (
+                <option key={ingredient.label} value={ingredient.label}>
+                  {FirstLetterUppercase(ingredient.label)}
+                </option>
+              ))}
           </select>
         </div>
         <button className="validate-button" type="submit">
