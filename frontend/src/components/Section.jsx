@@ -66,7 +66,7 @@ function Section({
         <>
           {!IsSearchActive && (
             <section className="carousel">
-              <h1 className="title">OUR SELECTION</h1>
+              <h1 className="title">OUR COCKTAILS SELECTION</h1>
               <div className="carousel-container">
                 <div className="display-main">
                   {cocktails
@@ -90,7 +90,7 @@ function Section({
                     ))}
                 </div>
               </div>
-              <h1 className="title">VODKA COCKTAILS</h1>
+              <h1 className="title">COCKTAIL VODKA</h1>
               <div className="carousel-container">
                 <div className="display-main">
                   {cocktails
@@ -117,7 +117,7 @@ function Section({
                     ))}
                 </div>
               </div>
-              <h1 className="title">HOT COCKTAILS</h1>
+              <h1 className="title">HOT COCKTAIL</h1>
               <div className="carousel-container">
                 <div className="display-main">
                   {cocktails
