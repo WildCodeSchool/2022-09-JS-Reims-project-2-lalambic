@@ -209,4 +209,8 @@ ul {
     font-weight: bold;
     max-width: 15rem;
   }
+  .display-main.rand {
+    display: flex;
+    flex-direction: row;
+  }
 }
