@@ -34,11 +34,6 @@ select{
   margin-bottom: 0.5rem;
 }
 
-.button-fly:hover{
-  background-color: #D3D3D3;
-  color:#090909;
-}
-
 .validate-button:hover{
   background-color: #D3D3D3;
   color:#090909;
