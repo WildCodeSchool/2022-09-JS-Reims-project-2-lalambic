@@ -27,6 +27,7 @@
 .display-main.rand {
   display: flex;
   flex-direction: column;
+  max-width: 690px;
 }
 
 .card {
@@ -200,8 +201,8 @@ ul {
     box-shadow: none;
   }
   .cocktailpage {
-    min-width: 35rem;
-    min-height: 35rem;
+    min-width: 50vw;
+    max-height: 50vh;
   }
   .titlecocktail {
     padding: 15px;
